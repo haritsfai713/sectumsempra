@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+  </head>
+
+
+
+<body>
+
+  <nav>
+    <img class="aksantara" src="../../assets/image/aksantara.png"/>
+    <ul>
+      <li><a class="active" href="#" routerLink="/login">Login</a> </li>
+    </ul>
+
+  </nav>
+
+
+  <main>
+    <section class="glass">
+      <div class="register-box">
+        <h1>Register</h1>
+        <div class="textbox">
+          <label class="form-label">Full Name</label>
+          <input [(ngModel)]="registerUserData.fullname" type="fullname" placeholder="Enter Full Name" name="fullname" value="">
+        </div>
+        <div class="textbox">
+          <label class="form-label">Phone Number</label>
+          <input [(ngModel)]="registerUserData.phone" type="phone" placeholder="Enter Phone Number" name="phone" value="">
+        </div>
+        <div class="textbox">
+          <label class="form-label">Address</label>
+          <input [(ngModel)]="registerUserData.address" type="address" placeholder="Enter Address" name="address" value="">
+        </div>
+        <div class="textbox">
+          <label class="form-label">Email</label>
+          <input [(ngModel)]="registerUserData.email" type="email" placeholder="Enter Email" name="email" value="">
+        </div>
+        <div class="textbox">
+          <label class="form-label">Password</label>
+          <input [(ngModel)]="registerUserData.password" type="password" placeholder="Enter Password" name="password" value="">
+        </div>
+        <input (click)="registerUser()" class="btn" type="button" name="" value="Register">
+      </div>
+
+    </section>
+
+  </main>
+</body>
+
+</html>

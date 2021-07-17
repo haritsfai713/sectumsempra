@@ -1,0 +1,174 @@
+@import "https://use.fontawesome.com/releases/v5.5.0/css/all.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+  min-height: 100vh;
+  min-width: 150vh;
+  background: linear-gradient(to right top, #ffc100, #ff4d00);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+body{
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-size: cover;
+
+}
+
+
+.glass {
+  background: rgb(255,193,0);
+  min-height: 55vh;
+  min-width: 30vh;
+  background: linear-gradient(to right bottom, rgba(218, 194, 64, 0.7),rgba(251, 255, 9, 0.3));
+  border-radius: 2rem;
+  backdrop-filter: blur(2rem);
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+
+
+
+}
+
+.container {
+  display: inline-grid;
+  grid-template-columns: auto auto auto;
+  justify-content: center;
+  text-align: center;
+  grid-column-gap: 50px;
+  margin: 0 25px;
+  width: 300px;
+  height: 450px;
+}
+
+
+.btn{
+  width: 100%;
+  background: none;
+  background-color: #ff6600;
+  border: none;
+  color: white;
+  padding: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 12px 0;
+  border-radius: 2rem;
+  transition: .5s;
+
+}
+
+.btn:hover{
+  background: #ff8800;
+
+}
+
+nav {
+  width: 100%;
+  min-width: 150vh;
+  height: 80px;
+  margin: 0 auto;
+  background-color: #192E54;
+  vertical-align: middle;
+
+
+}
+
+
+nav img {
+  margin-left: 20px;
+}
+
+nav ul {
+  float: right;
+  margin-right: 20px;
+  display: flex;
+}
+
+nav ul h1 {
+  color: white;
+  margin-right: 10px;
+}
+
+
+nav ul li {
+  display: inline-block;
+  line-height: 80px;
+  margin: 0 5px;
+}
+
+nav ul li a {
+  padding: 5px 15px 5px 15px;
+  color: white;
+  font-family: sans-serif;
+  font-weight: bold;
+  text-decoration: none;
+  margin: 18px 10px 0 0;
+  background: #F59400;
+  border-radius: 5px;
+  transition: .5s;
+}
+
+nav ul li a.active:hover{
+  background: #ffbb00;
+
+}
+
+label.form-label {
+  font-size: 16px;
+  font-weight: bold;
+  color: #ff4d00;
+
+
+
+
+}
+
+.flight-data img, .mission img, .parameter img {
+  /* display: block;
+  margin-bottom: 15px;
+  margin-top: 35px;
+  margin-left: 20px;
+  margin-right: 20px; */
+  width: 150px;
+  height: 150px;
+
+
+
+}
+
+a.btn {
+  padding: 5px 15px 5px 15px;
+  display: inline-block;
+  margin: 0 auto;
+  text-decoration: none;
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: center;
+  font-family: 'Kanit', sans-serif;
+  font-weight: bold;
+  background-color: #ff6600;
+}
+
+
+
+
+.flight-data, .mission, .parameter {
+  align-items: center;
+  position: absolute;
+  /* margin: 60px 15px; */
+}
+
+
+
+

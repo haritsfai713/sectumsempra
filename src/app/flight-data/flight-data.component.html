@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://kit.fontawesome.com/c9d9a9c246.js" crossorigin="anonymous"></script>
+
+  </head>
+
+
+
+<body>
+
+  <app-header> </app-header>
+  <nav>
+    <img class="aksantara" src="../../assets/image/aksantara.png"/>
+    <ul>
+      <li><h1>Flight Data</h1></li>
+    </ul>
+
+
+  </nav>
+
+  <main>
+    <div class="container">
+      <section class="flight-data">
+        <!-- <div class="attitude">
+
+        </div> -->
+        <div class="hud">
+          <div class="ui">
+            <svg id="sky" data-name="sky" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320.28 320"><defs><style>.cls-10{fill:#94b123;}.cls-11{fill:#aad0e7;}</style></defs><title>Aksantara</title><polygon class="cls-10" points="320 160 320 160.49 0.28 160.49 0.28 320 320.28 320 320.28 160 320 160"/><polygon class="cls-11" points="320 160 320 0 0 0 0 160.49 0.28 160.49 320 160.49 320 160"/></svg>
+            <svg id="arrow" data-name="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 735.4 73"><defs><style>.cls-13{fill:#f70d24;}</style></defs><title>Aksantara</title><polygon class="cls-13" points="367.53 0.38 259.46 73 261.72 73 313.34 50.91 367.29 27.83 421.53 50.24 475.37 72.5 475.94 72.5 367.53 0 367.53 0.38"/><rect class="cls-13" width="174.39" height="11.86"/><rect class="cls-13" x="561.01" width="174.39" height="11.86"/></svg>
+            <div id="altitude" class="altitude">
+                <svg id="bar" data-name="bar" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 316.73 1602.02"><defs><style>.cls-1{fill:#fff;}</style></defs><title>Aksantara</title><rect class="cls-1" x="0.43" y="847.91" width="315.77" height="12"/><rect class="cls-1" x="51.37" y="954.16" width="213.58" height="11.75"/><rect class="cls-1" x="0.64" y="1059.84" width="315.77" height="12"/><rect class="cls-1" x="51.58" y="1166.09" width="213.58" height="11.75"/><rect class="cls-1" x="0.75" y="1272.09" width="315.77" height="12"/><rect class="cls-1" x="51.69" y="1378.34" width="213.58" height="11.75"/><rect class="cls-1" x="0.96" y="1484.02" width="315.77" height="12"/><rect class="cls-1" x="51.9" y="1590.27" width="213.58" height="11.75"/><rect class="cls-1" width="315.77" height="12"/><rect class="cls-1" x="50.94" y="106.25" width="213.58" height="11.75"/><rect class="cls-1" x="0.21" y="211.93" width="315.77" height="12"/><rect class="cls-1" x="51.15" y="318.18" width="213.58" height="11.75"/><rect class="cls-1" x="0.32" y="424.18" width="315.77" height="12"/><rect class="cls-1" x="51.25" y="530.43" width="213.58" height="11.75"/><rect class="cls-1" x="0.53" y="636.11" width="315.77" height="12"/><rect class="cls-1" x="51.46" y="742.36" width="213.58" height="11.75"/></svg>
+            </div>
+            <p id="pos" class="hud-p" style="top: 28px; left: 20px;">1000</p>
+            <!-- <p id="neg" class="hud-p" style="top: 68px; left: 15px;">-1000</p> -->
+            <p id="pos" class="hud-p" style="top: 28px; left: 90px;">1000</p>
+            <!-- <p id="neg" class="hud-p" style="top: 68px; left: 85px;">-1000</p> -->
+        </div>
+        <div class="compass">
+            <svg id="degree" data-name="degree" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 39.56 39.56"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#222;}</style></defs><title>compass</title><path class="cls-1" d="M24.87,27a2.13,2.13,0,1,0-2.13-2.13A2.13,2.13,0,0,0,24.87,27Z" transform="translate(-5.06 -4.59)"/><circle class="cls-2" cx="19.78" cy="19.78" r="19.78"/><path class="cls-1" d="M26.43,38.43l-1.89-.28a.27.27,0,0,1-.16-.07.21.21,0,0,1,0-.14.24.24,0,0,1,.14-.21,1.12,1.12,0,0,1,.49-.07,1.18,1.18,0,0,1,.26,0,.86.86,0,0,1,.23.06.47.47,0,0,1,.18.12.32.32,0,0,1,.06.2h1.84a1.15,1.15,0,0,0-.64-1,2.81,2.81,0,0,0-.79-.26A7.44,7.44,0,0,0,25,36.75a6.42,6.42,0,0,0-.91.06,2.49,2.49,0,0,0-.74.21,1.22,1.22,0,0,0-.49.4,1.11,1.11,0,0,0-.18.65,1,1,0,0,0,.07.39.84.84,0,0,0,.19.33,1.11,1.11,0,0,0,.34.25,1.66,1.66,0,0,0,.49.15l1.81.27a.35.35,0,0,1,.22.1.23.23,0,0,1,.07.17.28.28,0,0,1-.13.23,1,1,0,0,1-.5.09,1.28,1.28,0,0,1-.54-.08.33.33,0,0,1-.17-.29H22.6a1,1,0,0,0,.23.71,1.47,1.47,0,0,0,.59.4,2.9,2.9,0,0,0,.82.19,9.08,9.08,0,0,0,.91.05,4.15,4.15,0,0,0,2-.35,1.18,1.18,0,0,0,.62-1.09,1,1,0,0,0-.34-.79A1.92,1.92,0,0,0,26.43,38.43Z" transform="translate(-5.06 -4.59)"/><polygon class="cls-1" points="5.63 20.47 5.61 20.47 5.03 18.02 3.77 18.02 3.18 20.47 3.17 20.47 2.66 18.02 1.13 18.02 2.29 22.02 3.84 22.02 4.39 19.81 4.4 19.81 4.95 22.02 6.5 22.02 7.67 18.02 6.14 18.02 5.63 20.47"/><polygon class="cls-1" points="37.65 18.1 37.65 17.13 33.39 17.13 33.39 21.13 37.65 21.13 37.65 20.15 34.97 20.15 34.97 19.61 37.45 19.61 37.45 18.64 34.97 18.64 34.97 18.1 37.65 18.1"/><polygon class="cls-1" points="19.14 4.32 19.15 4.32 20.83 6.55 22.57 6.55 22.57 2.56 21.05 2.56 21.05 4.77 21.04 4.77 19.43 2.56 17.63 2.56 17.63 6.55 19.14 6.55 19.14 4.32"/><path class="cls-1" d="M26.43,38.43l-1.89-.28a.27.27,0,0,1-.16-.07.21.21,0,0,1,0-.14.24.24,0,0,1,.14-.21,1.12,1.12,0,0,1,.49-.07,1.18,1.18,0,0,1,.26,0,.86.86,0,0,1,.23.06.47.47,0,0,1,.18.12.32.32,0,0,1,.06.2h1.84a1.15,1.15,0,0,0-.64-1,2.81,2.81,0,0,0-.79-.26A7.44,7.44,0,0,0,25,36.75a6.42,6.42,0,0,0-.91.06,2.49,2.49,0,0,0-.74.21,1.22,1.22,0,0,0-.49.4,1.11,1.11,0,0,0-.18.65,1,1,0,0,0,.07.39.84.84,0,0,0,.19.33,1.11,1.11,0,0,0,.34.25,1.66,1.66,0,0,0,.49.15l1.81.27a.35.35,0,0,1,.22.1.23.23,0,0,1,.07.17.28.28,0,0,1-.13.23,1,1,0,0,1-.5.09,1.28,1.28,0,0,1-.54-.08.33.33,0,0,1-.17-.29H22.6a1,1,0,0,0,.23.71,1.47,1.47,0,0,0,.59.4,2.9,2.9,0,0,0,.82.19,9.08,9.08,0,0,0,.91.05,4.15,4.15,0,0,0,2-.35,1.18,1.18,0,0,0,.62-1.09,1,1,0,0,0-.34-.79A1.92,1.92,0,0,0,26.43,38.43Z" transform="translate(-5.06 -4.59)"/><polygon class="cls-1" points="5.63 20.47 5.61 20.47 5.03 18.02 3.77 18.02 3.18 20.47 3.17 20.47 2.66 18.02 1.13 18.02 2.29 22.02 3.84 22.02 4.39 19.81 4.4 19.81 4.95 22.02 6.5 22.02 7.67 18.02 6.14 18.02 5.63 20.47"/><polygon class="cls-1" points="33.39 21.13 37.65 21.13 37.65 20.15 34.97 20.15 34.97 19.61 37.45 19.61 37.45 18.64 34.97 18.64 34.97 18.1 37.65 18.1 37.65 17.13 33.39 17.13 33.39 21.13"/></svg>
+            <svg id="arrow-degree" data-name="arrow-degree" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11.27 12.87"><defs><style>.cls-21{fill:#f0bc5e;}.cls-20{fill:#f7f7f5;}</style></defs><title>compass</title><polygon class="cls-21" points="8.43 11.68 10.3 9.81 6.03 1.26 6.03 4.73 5.24 4.73 5.24 1.26 0.96 9.81 2.84 11.68 5.24 8.94 5.24 5.53 6.03 5.53 6.03 8.94 8.43 11.68"/><path class="cls-20" d="M25.24,18.45a1,1,0,0,0-.93-.57,1,1,0,0,0-.93.57l-4.7,9.41,2.88,2.88,2.75-3.14,2.76,3.14L30,27.86Zm-1.33,5v3.41l-2.39,2.74-1.88-1.87,4.27-8.55v3.47h.8V19.16L29,27.71,27.1,29.58l-2.39-2.74V23.43Z" transform="translate(-18.68 -17.88)"/></svg>
+        </div>
+
+        </div>
+        <div class="parameter">
+          <p style="margin-bottom: 15px;">Values</p>
+        <p >Alt (Rel) (m)</p>
+        <p id="alt" style="margin-bottom: 15px;" class="number">0.0</p>
+        <p>Ground Speed (m/s)</p>
+        <p id="gdspeed" style="margin-bottom: 15px;" class="number">0.0</p>
+        <p>Flight Time</p>
+        <p class="number"><span id="hour">00</span>:<span id="minute">00</span>:<span id="second">00</span></p>
+
+        </div>
+        <div class="voice-activation">
+          <i class="fas fa-microphone" id="active"></i>
+          <i class="fas fa-microphone-slash" id="mute"></i>
+        </div>
+
+      </section>
+
+
+    <section class="map">
+      <app-map></app-map>
+
+    </section>
+
+    </div>
+
+  </main>
+</body>
+
+</html>

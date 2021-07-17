@@ -1,0 +1,94 @@
+@import "https://use.fontawesome.com/releases/v5.5.0/css/all.css";
+
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+html{
+  height: 100%;
+}
+
+nav {
+  position: fixed;
+  width: 100%;
+  min-width: 150vh;
+  height: 80px;
+  margin: 0 auto;
+  background-color: #192E54;
+  vertical-align: middle;
+}
+
+nav img {
+  margin-left: 20px;
+}
+
+.sidebar{
+  z-index: 12;
+  position:fixed;
+  transform: translateX(-1000px);
+  width: 25%;
+  height: 100%;
+  background:#192E54;
+  transition: .5s ease;
+
+}
+.sidebar ul a{
+  display: block;
+  height: 100%;
+  width: 100%;
+  line-height: 65px;
+  font-size: 20px;
+  font-family: sans-serif;
+  color: white;
+  padding-left: 40px;
+  box-sizing: border-box;
+  border-top: 1px solid rgba(255,255,255,.1);
+  border-bottom: 1px solid black;
+  text-decoration: none;
+}
+
+ul li:hover a{
+  padding-left: 60px;
+  transition: .4s;
+}
+
+
+
+label #btn,label #cancel{
+  position: absolute;
+  cursor: pointer;
+}
+label #btn{
+  z-index: 12;
+  right: 40px;
+  top: 25px;
+  font-size: 35px;
+  color: #f59400;
+}
+
+label #cancel{
+  right: 150px;
+  top: 17px;
+  font-size: 30px;
+  color: #f59400;
+
+}
+
+#check:checked ~ .sidebar{
+  transform: translateX(0);
+
+}
+
+#check:checked ~ .sidebar #cancel{
+  display: none;
+}
+
+input {
+  -webkit-appearance: none;
+  display: none;
+  visibility: hidden;
+
+}
+

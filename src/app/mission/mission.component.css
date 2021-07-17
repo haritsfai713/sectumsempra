@@ -1,0 +1,202 @@
+@import "https://use.fontawesome.com/releases/v5.5.0/css/all.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+main {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  min-width: 150vh;
+  background: linear-gradient(to right top, #ffc100, #ff4d00);
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+}
+body{
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-size: cover;
+
+}
+
+nav {
+  z-index: 10;
+  position: absolute;
+  width: 100%;
+  min-width: 150vh;
+  height: 80px;
+  margin: 0 auto;
+  background-color: #192E54;
+  vertical-align: middle;
+}
+
+nav img {
+  margin-left: 20px;
+}
+
+nav ul {
+  float: right;
+  margin-right: 20px;
+  display: flex;
+}
+
+nav ul h1 {
+  color:white;
+  margin-right: 80px;
+
+}
+
+
+nav ul li {
+  display: inline-block;
+  line-height: 80px;
+  margin: 0 5px;
+}
+
+nav ul li a {
+  padding: 5px 15px 5px 15px;
+  color: white;
+  font-family: sans-serif;
+  font-weight: bold;
+  text-decoration: none;
+  margin: 18px 10px 0 0;
+  background: #F59400;
+  border-radius: 5px;
+}
+
+
+.sidebar{
+  z-index: 10;
+  position:fixed;
+  transform: translateX(-250px);
+  width: 250px;
+  height: 100%;
+  background:#192E54;
+  transition: .5s ease;
+
+}
+.sidebar ul a{
+  display: block;
+  height: 100%;
+  width: 100%;
+  line-height: 65px;
+  font-size: 20px;
+  font-family: sans-serif;
+  color: white;
+  padding-left: 40px;
+  box-sizing: border-box;
+  border-top: 1px solid rgba(255,255,255,.1);
+  border-bottom: 1px solid black;
+  text-decoration: none;
+}
+
+ul li:hover a{
+  padding-left: 60px;
+  transition: .4s;
+}
+
+.container {
+  display: flex;
+
+}
+
+.plan {
+
+  background: rgb(255,193,0);
+  height: 100vh;
+  width: 20%;
+  background: linear-gradient(to right bottom, rgb(221, 142, 51),rgb(255, 91, 9));
+  backdrop-filter: blur(2rem);
+  margin-top: 80px;
+  text-align: center;
+  display: inline-block;
+}
+
+.map {
+
+  height: 100%;
+  width: 80%;
+  margin-top: 80px;
+}
+
+.buttonClass {
+  width: 60%;
+  height: auto;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  background-color: #192E54;
+  margin: 30px 10px 0 0;
+  padding: 8px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: .5s;
+}
+
+span {
+  font-size: 15px;
+  color: white;
+}
+
+button.read-btn:hover {
+  background-color: #284d92;
+}
+button.write-btn:hover {
+  background-color: #284d92;
+}
+button.home-btn:hover {
+  background-color: #284d92;
+}
+
+.home{
+  background: rgb(255,193,0);
+  background: linear-gradient(to right bottom, rgba(218, 194, 64, 0.7),rgba(251, 255, 9, 0.3));
+  backdrop-filter: blur(2rem);
+  height: 15vh;
+  width: 30vh;
+  border-radius: 10px;
+  margin: 30px 38px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-weight: bold;
+
+}
+
+.home p {
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  line-height: 1em;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 5px 20px;
+
+}
+
+.home .number {
+  font-size: 20px;
+
+
+}
+
+
+
+
+
+
+
