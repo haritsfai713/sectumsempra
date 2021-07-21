@@ -1,30 +1,37 @@
-// package import 
-const express = require('express');
-const bodyParser = require('body-parser');
+const dotenv = require("dotenv");
+const mongoose = require("mongoose");
 
-// local import 
-const {
-    mongoose
-} = require('././db');
-var parameterRouter = require('./router/parameterRouter');
-var waypointRouter = require('./router/waypointRouter');
-var app = express();
+//ENVIRONMENT CONFIGURATION
+dotenv.config({ path: "./config/.env" });
 
-app.use(bodyParser.json());
-app.listen(3000, () => console.log('server started at port : 3000'));
+//BACKEND APP
+const app = require("./app");
 
-app.use('/parameters', parameterRouter);
-app.use('/waypoints', waypointRouter);
+//CONNECTING TO DB
+const DB = process.env.DATABASE.replace(
+  "<DATABASE_PASSWORD>",
+  process.env.DATABASE_PASSWORD
+);
+mongoose.connect(
+  DB,
+  {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+    useUnifiedTopology: true,
+  },
+  (err) => {
+    if (!err) {
+      console.log("MongoDB connection succeeded.");
+    } else {
+      console.log("Error in DB connection" + JSON.stringify(err, undefined, 2));
+    }
+  }
+);
 
-let distDir = __dirname + "/";
-app.use(express.static(distDir));
-
-const port = process.env.PORT || 8080;
-
-app.get('/', (req, res) => {
-    res.send('invaild endpoint');
-});
-let server = app.listen(port, function() {
-    let ports = server.address().port;
-    console.log("App now running on port", ports);
+//LISTENING TO PORT
+const port = process.env.PORT || 3000;
+const server = app.listen(port, () => {
+  let ports = server.address().port;
+  console.log("App now running on port", ports);
 });
