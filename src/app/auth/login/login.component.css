@@ -1,153 +1,139 @@
 @import "https://use.fontawesome.com/releases/v5.5.0/css/all.css";
-
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 main {
-  min-height: 100vh;
-  background: linear-gradient(to right top, #ffc100, #ff4d00);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(to right top, #ffc100, #ff4d00);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-body{
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  background-size: cover;
 
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-size: cover;
 }
 
 .glass {
-  background: rgb(255,193,0);
-  min-height: 55vh;
-  min-width: 50vh;
-  background: linear-gradient(to right bottom, rgba(218, 194, 64, 0.7),rgba(251, 255, 9, 0.3));
-  border-radius: 2rem;
-  backdrop-filter: blur(2rem);
+    background: rgb(255, 193, 0);
+    min-height: 55vh;
+    min-width: 50vh;
+    background: linear-gradient(to right bottom, rgba(218, 194, 64, 0.7), rgba(251, 255, 9, 0.3));
+    border-radius: 2rem;
+    backdrop-filter: blur(2rem);
 }
 
-.login-box{
-  width: 280px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  color: white;
-}
-.login-box h1{
-  float: left;
-  font-size: 40px;
-  border-bottom: 6px solid #ff6600;
-  margin-bottom: 50px;
-  padding: 13px 0;
+.login-box {
+    width: 280px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
 }
 
-.textbox{
-  width: 100%;
-  overflow: hidden;
-  font-size: 20px;
-  padding: 8px 0;
-  margin: 8px 0;
-  border-bottom: 1px solid #ff6600;
+.login-box h1 {
+    float: left;
+    font-size: 40px;
+    border-bottom: 6px solid #ff6600;
+    margin-bottom: 50px;
+    padding: 13px 0;
 }
 
-.textbox i{
-  width: 26px;
-  float: left;
-  text-align: center;
-
-
+.textbox {
+    width: 100%;
+    overflow: hidden;
+    font-size: 20px;
+    padding: 8px 0;
+    margin: 8px 0;
+    border-bottom: 1px solid #ff6600;
 }
 
-.textbox input{
-  border: none;
-  outline: none;
-  background: none;
-  color: white;
-  font-size: 13px;
-  width: 80%;
-  float: left;
-  margin: 0 10px;
-  height: 20px;
-  margin-top: 5px;
-
+.textbox i {
+    width: 26px;
+    float: left;
+    text-align: center;
 }
 
-.btn{
-  width: 100%;
-  background: none;
-  background-color: #ff6600;
-  border: none;
-  color: white;
-  padding: 5px;
-  font-size: 18px;
-  font-weight: bold;
-  cursor: pointer;
-  margin: 12px 0;
-  border-radius: 2rem;
-  transition: .5s;
-
+.textbox input {
+    border: none;
+    outline: none;
+    background: none;
+    color: white;
+    font-size: 13px;
+    width: 80%;
+    float: left;
+    margin: 0 10px;
+    height: 20px;
+    margin-top: 5px;
 }
 
-input.btn:hover{
-  background: #ff8800;
+.btn {
+    width: 100%;
+    background: none;
+    background-color: #ff6600;
+    border: none;
+    color: white;
+    padding: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 12px 0;
+    border-radius: 2rem;
+    transition: .5s;
+}
 
+input.btn:hover {
+    background: #ff8800;
 }
 
 nav {
-  width: 100%;
-  height: 80px;
-  margin: 0 auto;
-  background-color: #192E54;
-  vertical-align: middle;
+    width: 100%;
+    height: 80px;
+    margin: 0 auto;
+    background-color: #192E54;
+    vertical-align: middle;
 }
 
 nav img {
-  margin-left: 20px;
+    margin-left: 20px;
 }
 
 nav ul {
-  float: right;
-  margin-right: 20px;
+    float: right;
+    margin-right: 20px;
 }
 
 nav ul li {
-  display: inline-block;
-  line-height: 80px;
-  margin: 0 5px;
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
 }
 
 nav ul li a {
-  padding: 5px 15px 5px 15px;
-  color: white;
-  font-family: sans-serif;
-  font-weight: bold;
-  text-decoration: none;
-  margin: 18px 10px 0 0;
-  background: #F59400;
-  border-radius: 5px;
-  transition: .5s;
+    padding: 5px 15px 5px 15px;
+    color: white;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 18px 10px 0 0;
+    background: #F59400;
+    border-radius: 5px;
+    transition: .5s;
 }
 
-nav ul li a.active:hover{
-  background: #ffbb00;
-
+nav ul li a.active:hover {
+    background: #ffbb00;
 }
 
 label.form-label {
-  font-size: 16px;
-  font-weight: bold;
-  color: #ff4d00;
-
-
-
-
+    font-size: 16px;
+    font-weight: bold;
+    color: #ff4d00;
 }
-
-
-
-

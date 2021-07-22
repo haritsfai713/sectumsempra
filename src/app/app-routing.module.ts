@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { MissionComponent } from './mission/mission.component';
 import { ParameterComponent } from './parameter/parameter.component';
 import { AuthGuard } from './auth.guard';
+import { LandingComponent } from './landing/landing.component';
 
 const routes: Routes = [
   {
@@ -17,18 +18,18 @@ const routes: Routes = [
     path: 'register',
     component: RegisterComponent
   },
-  {
-    path: 'home',
-    component: HomeComponent,
-    canActivate: [AuthGuard]
-  },
+  // {
+  //   path: 'home',
+  //   component: HomeComponent,
+  //   canActivate: [AuthGuard]
+  // },
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: '/login'
+    redirectTo: '/landing'
   },
   {
-    path:'flight-data',
+    path:'Dashboard',
     component: FlightDataComponent,
     canActivate: [AuthGuard]
   },
@@ -41,6 +42,10 @@ const routes: Routes = [
     path:'parameter',
     component: ParameterComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'landing',
+    component : LandingComponent
   }
 
 ];

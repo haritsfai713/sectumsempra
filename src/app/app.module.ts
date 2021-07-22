@@ -16,6 +16,7 @@ import { AuthService } from './services/auth.service';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { MapComponent } from './map/map.component';
+import { LandingComponent } from './landing/landing.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { MapComponent } from './map/map.component';
     FlightDataComponent,
     MissionComponent,
     ParameterComponent,
-    MapComponent
+    MapComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,
