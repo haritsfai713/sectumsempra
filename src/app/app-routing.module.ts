@@ -29,7 +29,7 @@ const routes: Routes = [
     redirectTo: '/landing'
   },
   {
-    path:'Dashboard',
+    path:'dashboard',
     component: FlightDataComponent,
     canActivate: [AuthGuard]
   },
