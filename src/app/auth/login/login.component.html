@@ -1,40 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
 
-  </head>
+<head>
+
+</head>
 
 
 
 <body>
 
-  <nav>
-    <img class="aksantara" src="../../assets/image/aksantara.png"/>
-    <ul>
-      <li><a class="active" href="#" routerLink="/register">Register</a> </li>
-    </ul>
+    <nav>
+        <a routerLink="/landing"><img class="aksantara" src="../../assets/image/aksantara.png" /></a>
+        <ul>
+            <li><a class="active" href="#" routerLink="/register">Register</a> </li>
+        </ul>
 
-  </nav>
+    </nav>
 
 
-  <main>
-    <section class="glass">
-      <div class="login-box">
-        <h1>Login</h1>
-        <div class="textbox">
-          <label class="form-label">Email</label>
-          <input [(ngModel)]="loginUserData.email" type="email" placeholder="Enter Email" name="email" value="">
-        </div>
-        <div class="textbox">
-          <label class="form-label">Password</label>
-          <input [(ngModel)]="loginUserData.password" type="password" placeholder="Enter Password" name="password" value="">
-        </div>
-        <input (click)="loginUser()" class="btn" type="button" name="" value="Login" >
-      </div>
+    <main>
+        <section class="glass">
+            <div class="login-box">
+                <h1>Login</h1>
+                <div class="textbox">
+                    <label class="form-label">Email</label>
+                    <input [(ngModel)]="loginUserData.email" type="email" placeholder="Enter Email" name="email" value="">
+                </div>
+                <div class="textbox">
+                    <label class="form-label">Password</label>
+                    <input [(ngModel)]="loginUserData.password" type="password" placeholder="Enter Password" name="password" value="">
+                </div>
+                <input (click)="loginUser()" class="btn" type="button" name="" value="Login">
+            </div>
 
-    </section>
+        </section>
 
-  </main>
+    </main>
 </body>
 
 </html>
