@@ -11,10 +11,11 @@ export class RegisterComponent implements OnInit {
 
   registerUserData = {
     "fullname": "",
-    "phone": "",
-    "address": "",
+    // "phone": "",
+    // "address": "",
     "email": "",
-    "password": ""
+    "password": "",
+    "passwordConfirm": ""
   }
 
   constructor(private auth: AuthService, private rout: Router) { }

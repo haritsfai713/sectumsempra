@@ -1,50 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
 
-  </head>
+<head>
+
+</head>
 
 
 
 <body>
 
-  <app-header> </app-header>
-  <nav>
+    <app-header> </app-header>
+    <!-- <nav>
     <img class="aksantara" src="../../assets/image/aksantara.png"/>
     <ul>
       <li><h1>Mission</h1></li>
     </ul>
 
 
-  </nav>
+  </nav> -->
 
-  <main>
-    <div class="container">
-      <div class="plan">
+    <main>
+        <div class="container">
+            <div class="plan">
 
-        <div class="buttonClass">
-          <button class="read-btn" ><span>Read</span></button>
-          <button class="write-btn" ><span>Write</span></button>
-          <button class="home-btn" ><span>Home</span></button>
-      </div>
+                <div class="buttonClass">
+                    <button class="read-btn"><span>Read</span></button>
+                    <button class="write-btn"><span>Write</span></button>
+                    <button class="home-btn"><span>Home</span></button>
+                </div>
 
-      <div class="home">
-        <p>Home Location</p>
-        <p class="number">Lat : <span style="font-size: 20px;" id="latitude">0</span></p>
-        <p class="number">Lon : <span style="font-size: 20px;" id="longitude">0</span></p>
+                <div class="home">
+                    <p>Home Location</p>
+                    <p class="number">Lat : <span style="font-size: 20px;" id="latitude">0</span></p>
+                    <p class="number">Lon : <span style="font-size: 20px;" id="longitude">0</span></p>
 
-      </div>
+                </div>
 
+
+            </div>
+
+            <div class="map">
+                <app-map></app-map>
+            </div>
 
         </div>
 
-      <div class="map">
-        <app-map></app-map>
-      </div>
-
-      </div>
-
-  </main>
+    </main>
 </body>
 
 </html>

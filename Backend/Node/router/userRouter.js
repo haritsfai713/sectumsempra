@@ -7,6 +7,9 @@ const router = express.Router();
 router.post("/signup", authController.signup)
 router.post("/login", authController.login)
 
+//PROTECTING ROUTES
+router.use(authController.verifyToken)
+
 //USER API ROUTES
 router.get("/", userController.getAllUser);
 
