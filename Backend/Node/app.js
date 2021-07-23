@@ -1,6 +1,8 @@
 // PACKAGE IMPORT
 const express = require("express");
 const createError = require("http-errors");
+const morgan = require("morgan")
+const cors = require("cors")
 
 // LOCAL IMPORT
 // const parameterRouter = require("./router/parameterRouter");
@@ -13,7 +15,10 @@ const app = express();
 // GLOBAL MIDDLEWARE
 // 1). Body parser, membuat req.body menjadi accessible dari data req
 app.use(express.json());
-// 2).
+// 2). Morgan Package untuk melihat request yang masuk
+app.use(morgan('dev'))
+// 3). CORS
+app.use(cors())
 
 // API ROUTES
 app.use("/api/v1/users", userRouter);
