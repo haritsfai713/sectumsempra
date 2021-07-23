@@ -67,10 +67,12 @@ exports.login = async(req, res, next) => {
     const user = await User.find({
         email
     });
-    iscocok = await bcrypt.compare(password, user.password, function(err, result) {
-        // result == true
-    });
-    console.log(req.body);
-    console.log(iscocok);
+    const match = await bcrypt.compare(password, user[0]["password"]);
     console.log(user);
+    console.log(match);
+
+    res.status(201).json({
+        status: "success",
+        data: user
+    })
 };
