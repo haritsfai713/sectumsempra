@@ -8,13 +8,26 @@ import { AuthService } from '../services/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
+  public list = false;
+  public user = false;
   constructor(private auth: AuthService) { }
 
   ngOnInit(): void {
+
+  }
+
+  listUAV(){
+    this.list = !this.list;
+  }
+
+  userPopup(){
+    this.user = !this.user;
   }
 
   logoutUser(){
     this.auth.logout();
   }
+
+
 
 }

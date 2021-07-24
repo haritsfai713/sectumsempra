@@ -26,81 +26,7 @@ body{
 
 }
 
-nav {
-  z-index: 10;
-  position: absolute;
-  width: 100%;
-  min-width: 150vh;
-  height: 80px;
-  margin: 0 auto;
-  background-color: #192E54;
-  vertical-align: middle;
-}
 
-nav img {
-  margin-left: 20px;
-}
-
-nav ul {
-  float: right;
-  margin-right: 20px;
-  display: flex;
-}
-
-nav ul h1 {
-  color:white;
-  margin-right: 80px;
-
-}
-
-
-nav ul li {
-  display: inline-block;
-  line-height: 80px;
-  margin: 0 5px;
-}
-
-nav ul li a {
-  padding: 5px 15px 5px 15px;
-  color: white;
-  font-family: sans-serif;
-  font-weight: bold;
-  text-decoration: none;
-  margin: 18px 10px 0 0;
-  background: #F59400;
-  border-radius: 5px;
-}
-
-
-.sidebar{
-  z-index: 10;
-  position:fixed;
-  transform: translateX(-250px);
-  width: 250px;
-  height: 100%;
-  background:#192E54;
-  transition: .5s ease;
-
-}
-.sidebar ul a{
-  display: block;
-  height: 100%;
-  width: 100%;
-  line-height: 65px;
-  font-size: 20px;
-  font-family: sans-serif;
-  color: white;
-  padding-left: 40px;
-  box-sizing: border-box;
-  border-top: 1px solid rgba(255,255,255,.1);
-  border-bottom: 1px solid black;
-  text-decoration: none;
-}
-
-ul li:hover a{
-  padding-left: 60px;
-  transition: .4s;
-}
 
 .container {
   display: flex;
@@ -114,7 +40,6 @@ ul li:hover a{
   width: 20%;
   background: linear-gradient(to right bottom, rgb(221, 142, 51),rgb(255, 91, 9));
   backdrop-filter: blur(2rem);
-  margin-top: 80px;
   text-align: center;
   display: inline-block;
 }
@@ -123,7 +48,7 @@ ul li:hover a{
 
   height: 100%;
   width: 80%;
-  margin-top: 80px;
+
 }
 
 .buttonClass {

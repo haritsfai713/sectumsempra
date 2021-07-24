@@ -12,43 +12,236 @@ html {
 nav {
     width: 100%;
     height: 80px;
-    margin: 0 auto;
     background-color: #192E54;
     vertical-align: middle;
+    z-index: 8;
 }
 
 nav img {
+  float: left;
     margin-left: 20px;
 }
 
-nav ul {
+nav .user {
     float: right;
     margin-right: 20px;
+
 }
 
-nav ul li {
+nav .top-icon {
+  float: left;
+    margin-left: 20px;
+}
+
+nav .top-icon ul li {
     display: inline-block;
     line-height: 80px;
     margin: 0 5px;
 }
+nav .user ul li {
+  display: inline-block;
+  line-height: 80px;
+  margin: 0 5px;
+}
 
-nav ul li a i {
+
+nav .top-icon ul li a i {
     /* padding: 5px 15px 5px 15px; */
     color: white;
     /* font-family: sans-serif;
   font-weight: bold;
   text-decoration: none; */
-    margin: 18px 10px 0 0;
+    margin: 18px 10px 0 20px;
     /* background: #F59400;
   border-radius: 5px; */
     transition: .5s;
     color: #F59400;
     font-size: 30px;
+    cursor: pointer;
+}
+nav .user ul li a i {
+  /* padding: 5px 15px 5px 15px; */
+  color: white;
+  /* font-family: sans-serif;
+font-weight: bold;
+text-decoration: none; */
+  margin: 18px 10px 0 0;
+  /* background: #F59400;
+border-radius: 5px; */
+  transition: .5s;
+  color: #F59400;
+  font-size: 30px;
 }
 
-nav ul li a i:hover {
+nav .top-icon ul li a i:hover {
     color: #ffbb00;
 }
+nav .user ul li a i:hover {
+  color: #ffbb00;
+}
+
+.uav-list {
+  /* visibility: hidden;
+  opacity: 0; */
+  z-index: 10;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: linear-gradient(to right top, #ffc100, #ff9900);
+  border-radius: 10px;
+  font-family: sans-serif;
+  width: 60vh;
+  height: 50vh;
+  transition: .5s ease;
+
+}
+
+.uav-list-header {
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(to right bottom, rgb(221, 142, 51),rgb(255, 91, 9));
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  font-size: 20px;
+}
+
+.uav-list-body {
+  padding: 15px 20px;
+  color: white;
+}
+
+.uav-list-header .close-button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  outline: none;
+  font-size: 30px;
+}
+
+#overlay {
+  position: fixed;
+  z-index: 9;
+  /* opacity: 0;
+  visibility: hidden; */
+  transition: .5s ease;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.5);
+}
+
+.profile-popup {
+  z-index: 7;
+  position: absolute;
+  top: 80px;
+  right: 20px;
+  background: linear-gradient(to right top, #ffc100, #ff9900);
+  border-radius: 10px;
+  font-family: sans-serif;
+  width: 40vh;
+  height: 32vh;
+  transition: .5s ease;
+
+}
+
+.profile-popup-header {
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(to right bottom, rgb(221, 142, 51),rgb(255, 91, 9));
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
+}
+
+.profile-popup-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 15px 20px;
+  color: white;
+  line-height: 30px;
+}
+
+.profile-popup-header .close-button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  outline: none;
+  font-size: 20px;
+}
+
+.profile-popup-body .logout-btn {
+  border-radius: 10px;
+  background: rgb(255, 91, 9);
+  color: white;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: .5s;
+
+}
+
+.profile-popup-body .logout-btn:hover {
+  background: #ff9100;;
+}
+
+.profile-popup-body .fa-user-alt{
+  font-size: 3rem;
+}
+.user .fa-user-alt{
+  cursor: pointer;
+}
+
+
+
+
+/* input {
+  -webkit-appearance: none;
+  display: none;
+  visibility: hidden;
+} */
+
+
+/* label{
+  cursor: pointer;
+} */
+
+
+/* #click:checked ~ .uav-list{
+  opacity: 1;
+  visibility: visible;
+}
+#click:checked ~ #overlay{
+  opacity: 1;
+  visibility: visible;
+
+} */
+
+/* #click:checked ~ .uav-list #close{
+  display: none;
+} */
+
+/* #check {
+  display: none;
+} */
+
+/* input {
+  -webkit-appearance: none;
+  display: none;
+  visibility: hidden;
+} */
 
 
 /* .sidebar{
