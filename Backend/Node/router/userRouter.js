@@ -6,6 +6,7 @@ const router = express.Router();
 //AUTH ROUTES
 router.post("/signup", authController.signup)
 router.post("/login", authController.login)
+router.get("/verifyToken", authController.tokenValidation)
 
 //PROTECTING ROUTES
 router.use(authController.verifyToken)
