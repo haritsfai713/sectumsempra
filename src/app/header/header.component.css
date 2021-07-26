@@ -147,7 +147,7 @@ nav .user ul li a i:hover {
   border-radius: 10px;
   font-family: sans-serif;
   width: 40vh;
-  height: 32vh;
+  height: 35vh;
   transition: .5s ease;
 
 }
@@ -204,6 +204,9 @@ nav .user ul li a i:hover {
   cursor: pointer;
 }
 
+.user-loggedin{
+  margin: 10px 0;
+}
 
 
 

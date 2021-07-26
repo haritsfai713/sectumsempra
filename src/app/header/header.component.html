@@ -62,8 +62,11 @@
     </div>
     <div class="profile-popup-body">
         <i class="fas fa-user-alt"></i>
-        <p>Name : {{ dataUser.nama }} </p>
-        <p>Email : {{ dataUser.email }} </p>
+        <div class="user-loggedin">
+          <p>Name : {{ dataUser.nama }} </p>
+          <p>Email : {{ dataUser.email }} </p>
+        </div>
+
         <a class="logout-btn" (click)="logoutUser()">Logout</a>
     </div>
 </div>
