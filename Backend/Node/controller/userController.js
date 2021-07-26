@@ -9,3 +9,9 @@ exports.getAllUser = async(req, res, next) => {
         data: user,
     });
 };
+
+exports.getUser = async(req, res, next) => {
+    res.status(200).json({
+        status: "not implemented"
+    });
+};

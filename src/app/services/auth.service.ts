@@ -11,6 +11,8 @@ export class AuthService {
 
   private _url = "http://localhost:3000/api/v1"
 
+
+
   constructor(private http: HttpClient, private rout: Router) {
 
   }
