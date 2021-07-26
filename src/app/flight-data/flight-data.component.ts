@@ -15,7 +15,7 @@ export class FlightDataComponent implements OnInit {
   public user = {
     "nama": "",
     "email" : "",
-  } 
+  }
   constructor(
     private flightdataservice: FlightDataService,
     private auth: AuthService,
@@ -25,7 +25,6 @@ export class FlightDataComponent implements OnInit {
   ngOnInit(): void {
     this.auth.verifyToken().subscribe(
       (res) => {
-        console.log(res)
         this.user.nama = res.data.nama
         this.user.email = res.data.email
 
