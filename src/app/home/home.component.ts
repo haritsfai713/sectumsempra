@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   constructor(private auth: AuthService, private rout: Router) { }
 
   ngOnInit(): void {
-    this.auth.getSpecial()
+    this.auth.verifyToken()
     .subscribe(
       res => console.log(res),
       err => {

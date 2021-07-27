@@ -20,7 +20,7 @@ export class FlightDataComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.auth.getSpecial()
+    this.auth.verifyToken()
     .subscribe(
       res => console.log(res),
       err => {
