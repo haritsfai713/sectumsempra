@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import { getUserProjection } from 'ol/proj';
 
 @Component({
   selector: 'app-login',
@@ -24,7 +25,9 @@ export class LoginComponent implements OnInit {
     .subscribe(
       res => {
         console.log(res)
-        localStorage.setItem('token',res.token)
+        localStorage.setItem('token', res.token)
+        localStorage.setItem('nama', res.data[0].nama)
+        localStorage.setItem('email', res.data[0].email)
         this.rout.navigate(['/dashboard'])
 
       },

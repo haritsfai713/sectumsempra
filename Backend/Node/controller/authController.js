@@ -25,7 +25,7 @@ exports.verifyToken = (req, res, next) => {
     next()
 }
 
-exports.tokenValidation = (req, res, next) => {
+exports.tokenValidation = async(req, res, next) => {
     let token;
     // 1). Cek Keberadaan Token di Header
     if (req.headers.authorization) {
@@ -40,11 +40,9 @@ exports.tokenValidation = (req, res, next) => {
         return next(createError(401, "Login kembali untuk akses!"))
     }
 
-    // 3). Menambahkan data user ke objek req
-    req.userId = tokenPayload.subject
-
     res.status(201).json({
-        status : "success",
+        status: "success",
+
     })
 }
 
@@ -105,6 +103,7 @@ exports.login = async(req, res, next) => {
     const jwtOption = {
         expiresIn: "7d",
     };
+
     const token = jwt.sign({
             id: user._id,
         },

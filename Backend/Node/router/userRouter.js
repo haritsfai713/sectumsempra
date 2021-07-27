@@ -13,5 +13,6 @@ router.use(authController.verifyToken)
 
 //USER API ROUTES
 router.get("/", userController.getAllUser);
+router.get("/:id", userController.getUser);
 
 module.exports = router;

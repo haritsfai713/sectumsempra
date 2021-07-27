@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -8,12 +8,20 @@ import { AuthService } from '../services/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
+  // @Input('userData') public dataUser : any ; 
+
+  dataUser = {
+    nama: localStorage.getItem("nama"),
+    email: localStorage.getItem("email"), 
+  }
+ 
+
   public list = false;
   public user = false;
   constructor(private auth: AuthService) { }
 
   ngOnInit(): void {
-
+    console.log(this.dataUser) 
   }
 
   listUAV(){
@@ -27,7 +35,6 @@ export class HeaderComponent implements OnInit {
   logoutUser(){
     this.auth.logout();
   }
-
 
 
 }

@@ -6,32 +6,32 @@
 <nav>
     <img class="aksantara" src="../../assets/image/aksantara.png" />
     <div class="top-icon">
-      <ul>
-        <li>
-            <a routerlink="/dashboard" href="dashboard"><i class="fas fa-plane" ></i></a>
-            <a routerlink="/mission" href="mission"><i class="fas fa-map-marked-alt" ></i></a>
-            <a routerlink="/parameter" href="parameter"><i class="fas fa-file-code" ></i></a>
-            <a >
-                <i (click)="listUAV()" class="fas fa-microchip" id="open" ></i>
-            </a>
+        <ul>
+            <li>
+                <a routerlink="/dashboard" href="dashboard"><i class="fas fa-plane" ></i></a>
+                <a routerlink="/mission" href="mission"><i class="fas fa-map-marked-alt" ></i></a>
+                <a routerlink="/parameter" href="parameter"><i class="fas fa-file-code" ></i></a>
+                <a>
+                    <i (click)="listUAV()" class="fas fa-microchip" id="open"></i>
+                </a>
 
-        </li>
+            </li>
 
 
-    </ul>
+        </ul>
 
 
     </div>
 
     <div class="user">
-      <ul>
-        <li>
-            <a id="profile"><i (click)="userPopup()" class="fas fa-user-alt" ></i></a>
+        <ul>
+            <li>
+                <a id="profile"><i (click)="userPopup()" class="fas fa-user-alt" ></i></a>
 
-        </li>
+            </li>
 
-        <!-- <li><a class="active" href="#" routerLink="/login">Login</a> </li> -->
-    </ul>
+            <!-- <li><a class="active" href="#" routerLink="/login">Login</a> </li> -->
+        </ul>
 
     </div>
 
@@ -41,31 +41,34 @@
 
 
 <div *ngIf="list" class="uav-list" id="uav-list">
-  <div class="uav-list-header">
-    <div class="title">UAV List</div>
-      <button (click)="listUAV()" class="close-button" id="close">&times;</button>
+    <div class="uav-list-header">
+        <div class="title">UAV List</div>
+        <button (click)="listUAV()" class="close-button" id="close">&times;</button>
 
-  </div>
-  <div class="uav-list-body">
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-  </div>
+    </div>
+    <div class="uav-list-body">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+    </div>
 
 </div>
 <div *ngIf="list" id="overlay"></div>
 
 
 <div *ngIf="user" class="profile-popup">
-  <div class="profile-popup-header">
-    <div class="title">Profile</div>
-      <button (click)="userPopup()" class="close-button" id="cancel">&times;</button>
+    <div class="profile-popup-header">
+        <div class="title">Profile</div>
+        <button (click)="userPopup()" class="close-button" id="cancel">&times;</button>
 
-  </div>
-  <div class="profile-popup-body">
-    <i class="fas fa-user-alt" ></i>
-    <p>Name :</p>
-    <p>Email :</p>
-    <a class="logout-btn" (click)="logoutUser()">Logout</a>
-  </div>
+    </div>
+    <div class="profile-popup-body">
+        <i class="fas fa-user-alt"></i>
+        <div class="user-loggedin">
+          <p>Name : {{ dataUser.nama }} </p>
+          <p>Email : {{ dataUser.email }} </p>
+        </div>
+
+        <a class="logout-btn" (click)="logoutUser()">Logout</a>
+    </div>
 </div>
 
 <!-- <input type="checkbox " id="check ">
