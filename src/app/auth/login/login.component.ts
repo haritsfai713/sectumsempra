@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
   }
 
   loginUser() {
+    console.log(this.loginUserData)
     this.auth.loginUser(this.loginUserData)
     .subscribe(
       res => {

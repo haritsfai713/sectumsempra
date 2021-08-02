@@ -25,7 +25,7 @@ exports.verifyToken = (req, res, next) => {
     next()
 }
 
-exports.tokenValidation = async(req, res, next) => {
+exports.tokenValidation = (req, res, next) => {
     let token;
     // 1). Cek Keberadaan Token di Header
     if (req.headers.authorization) {

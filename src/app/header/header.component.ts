@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from '../services/auth.service';
+import {SerialService} from "../services/serial.service";
+import { NgModel } from "@angular/forms"
 
 @Component({
   selector: 'app-header',
@@ -8,20 +10,24 @@ import { AuthService } from '../services/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
-  // @Input('userData') public dataUser : any ; 
+  // @Input('userData') public dataUser : any ;
 
   dataUser = {
     nama: localStorage.getItem("nama"),
-    email: localStorage.getItem("email"), 
+    email: localStorage.getItem("email"),
   }
- 
+
 
   public list = false;
   public user = false;
-  constructor(private auth: AuthService) { }
+
+  // CONNECT KE UAV LEWAT APA ? (serial, udp)
+  public connectUsing = "";
+
+
+  constructor(private auth: AuthService, private serial : SerialService) { }
 
   ngOnInit(): void {
-    console.log(this.dataUser) 
   }
 
   listUAV(){
@@ -34,6 +40,12 @@ export class HeaderComponent implements OnInit {
 
   logoutUser(){
     this.auth.logout();
+  }
+
+  connect(){
+    if (this.connectUsing === "serial") {
+      this.serial.connect();
+    }
   }
 
 

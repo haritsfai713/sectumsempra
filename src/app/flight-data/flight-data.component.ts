@@ -24,12 +24,6 @@ export class FlightDataComponent implements OnInit {
 
   ngOnInit(): void {
     this.auth.verifyToken().subscribe(
-      (res) => {
-        this.user.nama = res.data.nama
-        this.user.email = res.data.email
-
-      },
-
       (err) => {
         if (err instanceof HttpErrorResponse) {
           if (err.status === 500) {
