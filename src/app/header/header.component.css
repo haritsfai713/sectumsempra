@@ -25,8 +25,38 @@ nav img {
 nav .user {
     float: right;
     margin-right: 20px;
+    display: flex;
 
 }
+nav .user .connect-list{
+  line-height: 70px;
+  margin: 0 20px 0 20px;
+}
+
+nav .user .connect-list #channel{
+  margin: 10px;
+  cursor: pointer;
+}
+
+
+nav .user .connect-list .connect-btn{
+  border-radius: 5px;
+  padding: 3px;
+  color: white;
+  background-color: #F59400;
+  outline: none;
+  box-shadow: none;
+  border:none;
+  transition: .5s;
+  cursor: pointer;
+
+}
+
+nav .user .connect-list .connect-btn:hover{
+  background-color: #ffbb00;
+
+}
+
 
 nav .top-icon {
   float: left;

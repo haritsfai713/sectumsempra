@@ -23,19 +23,21 @@
 
     </div>
 
-    <div>
-      <label for="channel"></label>
-      <select name="channel" id="channel" [(ngModel)]="connectUsing">
-        <option value="serial">Serial Port</option>
-        <option value="udp">UDP</option>
-      </select>
-    </div>
 
-    <button (click)="connect()">
-      Connect
-    </button>
 
     <div class="user">
+      <div class="connect-list">
+        <label for="channel"></label>
+        <select name="channel" id="channel" [(ngModel)]="connectUsing">
+          <option value="serial">Serial Port</option>
+          <option value="udp">UDP</option>
+        </select>
+        <button class="connect-btn" (click)="connect()">
+          Connect
+        </button>
+      </div>
+
+
         <ul>
             <li>
                 <a id="profile"><i (click)="userPopup()" class="fas fa-user-alt" ></i></a>
