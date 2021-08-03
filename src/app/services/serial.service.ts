@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
+import { MavlinkService } from './mavlink.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SerialService {
 
-  constructor() { }
+  public reader:any;
+  public writer:any;
+
+  constructor(private mavlink : MavlinkService ) { }
 
   async connect() {
     if ('serial' in navigator) {
@@ -13,9 +17,9 @@ export class SerialService {
         const port = await (navigator as any).serial.requestPort();
         await console.log(port)
         await port.open({ baudRate: 9600 });
-        // this.reader = port.readable.getReader();
-        // this.writer = port.writable.getWriter();
-
+        this.reader = port.readable.getReader();
+        this.writer = port.writable.getWriter();
+        this.mavlink.loadMavlinkSerial(this.reader);
         // this.verif = true;
       }
       catch(err) {
