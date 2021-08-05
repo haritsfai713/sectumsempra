@@ -34,6 +34,11 @@ pastikan direktori berada pada direktori Node yang berada di dalam folder backen
 node server.js
 ```
 
+## Akun dummy yang bisa dipakai 
+email : test@gmail.com
+password : 01234567890
+
+atau bisa mencoba register dan login
 
 
 program dibuat oleh :
