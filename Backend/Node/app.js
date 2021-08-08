@@ -13,25 +13,25 @@ const userRouter = require("./router/userRouter");
 const app = express();
 
 // Buat Deploy angular 
-// function requireHTTPS(req, res, next) {
-//     if (!req.secure && req.get('x-forwarded-proto') !== 'https') {
-//         return reduce.redirect('https://' + req.get('host') + req.url)
-//     }
-//    next();
-// }
+function requireHTTPS(req, res, next) {
+    if (!req.secure && req.get('x-forwarded-proto') !== 'https') {
+        return reduce.redirect('https://' + req.get('host') + req.url)
+    }
+    next();
+}
 
-// app.use(requireHTTPS);
+app.use(requireHTTPS);
 
-// app.use(express.static('./../../dist/GCSapp21'));
+app.use(express.static('./../../dist/GCSapp21'));
 
-// app.get('/*', function(req, res) {
-//     res.sendFile('index.html', {
-//         root: 'dist/GCSapp21'
-//     });
-// })
+app.get('/*', function(req, res) {
+    res.sendFile('index.html', {
+        root: 'dist/GCSapp21'
+    });
+})
 
 
-// app.listen(process.env.PORT || 8080)
+app.listen(process.env.PORT || 8080)
 
 // GLOBAL MIDDLEWARE
 // 1). Body parser, membuat req.body menjadi accessible dari data req
