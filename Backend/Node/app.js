@@ -22,16 +22,15 @@ function requireHTTPS(req, res, next) {
 
 app.use(requireHTTPS);
 
-app.use(express.static('./../../dist/GCSapp21'));
+app.use(express.static('./../../dist/GCSapp21/package.json'));
 
 app.get('/*', function(req, res) {
     res.sendFile('index.html', {
-        root: 'dist/GCSapp21'
+        root: 'dist/GCSapp21/package.json'
     });
 })
 
 
-app.listen(process.env.PORT || 8080)
 
 // GLOBAL MIDDLEWARE
 // 1). Body parser, membuat req.body menjadi accessible dari data req
@@ -60,6 +59,9 @@ app.all("*", (req, res, next) => {
         )
     );
 });
+
+
+app.listen(process.env.PORT || 8080)
 
 //GLOBAL ERROR HANDLER MIDDLEWARE
 
