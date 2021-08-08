@@ -60,8 +60,8 @@ app.all("*", (req, res, next) => {
     );
 });
 
-
-app.listen(process.env.PORT || 8080)
+// buat deploy angular
+// app.listen(process.env.PORT || 8080)
 
 //GLOBAL ERROR HANDLER MIDDLEWARE
 
