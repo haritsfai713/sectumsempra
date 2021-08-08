@@ -8,9 +8,6 @@ const cors = require("cors")
 // const parameterRouter = require("./router/parameterRouter");
 // const waypointRouter = require("./router/waypointRouter");
 const userRouter = require("./router/userRouter");
-const {
-    reduce
-} = require("core-js/core/array");
 
 // INITIALIZE EXPRESS APP
 const app = express();
@@ -20,6 +17,7 @@ const app = express();
 //     if (!req.secure && req.get('x-forwarded-proto') !== 'https') {
 //         return reduce.redirect('https://' + req.get('host') + req.url)
 //     }
+//    next();
 // }
 
 // app.use(requireHTTPS);
