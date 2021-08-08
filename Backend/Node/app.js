@@ -22,11 +22,11 @@ function requireHTTPS(req, res, next) {
 
 app.use(requireHTTPS);
 
-app.use(express.static('./../../dist/GCSapp21/package.json'));
+app.use(express.static('./../../dist/GCSapp21'));
 
 app.get('/*', function(req, res) {
     res.sendFile('index.html', {
-        root: 'dist/GCSapp21/package.json'
+        root: 'dist/GCSapp21'
     });
 })
 
