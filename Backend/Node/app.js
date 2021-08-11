@@ -12,24 +12,6 @@ const userRouter = require("./router/userRouter");
 // INITIALIZE EXPRESS APP
 const app = express();
 
-// Buat Deploy angular 
-function requireHTTPS(req, res, next) {
-    if (!req.secure && req.get('x-forwarded-proto') !== 'https') {
-        return reduce.redirect('https://' + req.get('host') + req.url)
-    }
-    next();
-}
-
-app.use(requireHTTPS);
-
-app.use(express.static('./../../dist/GCSapp21'));
-
-app.get('/*', function(req, res) {
-    res.sendFile('index.html', {
-        root: 'dist/GCSapp21'
-    });
-})
-
 
 
 // GLOBAL MIDDLEWARE

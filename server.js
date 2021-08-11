@@ -1,20 +1,21 @@
-const express = require('express')
-const bodyParser = require('body-parser')
-const cors = require("cors")
+// Buat Deploy angular
+const express = require("express");
 
-const PORT = 3000
-const api = require('./routes/api')
-const app = express()
+function requireHTTPS(req, res, next) {
+    if (!req.secure && req.get('x-forwarded-proto') !== 'https') {
+        return reduce.redirect('https://' + req.get('host') + req.url)
+    }
+    next();
+}
 
-app.use(cors())
+app.use(requireHTTPS);
 
-app.use(bodyParser.json())
+app.use(express.static('./dist/GCSapp21'));
 
-app.use('/api',api)
-app.get('/',function(req,res){
-  res.send('Hello from server')
+app.get('/*', function(req, res) {
+    res.sendFile('index.html', {
+        root: 'dist/GCSapp21'
+    });
 })
 
-app.listen(PORT,function(){
-  console.log('server running on localhost: ' + PORT)
-})
+app.listen(process.env.PORT || 8080)
