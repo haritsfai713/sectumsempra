@@ -40,6 +40,8 @@ password : 01234567890
 
 atau bisa mencoba register dan login
 
+heroku git:remote -a gcs-webapp-2021-backend
+
 
 program dibuat oleh :
 1. Moch. Faiq Al-Harits
