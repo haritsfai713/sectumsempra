@@ -7,6 +7,8 @@ function requireHTTPS(req, res, next) {
     }
     next();
 }
+const app = express();
+
 
 app.use(requireHTTPS);
 
