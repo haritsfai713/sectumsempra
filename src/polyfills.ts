@@ -57,9 +57,18 @@
 /***************************************************************************************************
  * Zone JS is required by default for Angular itself.
  */
+import { NgModuleResolver } from '@angular/compiler';
+import { resolve } from 'url';
 import 'zone.js';  // Included with Angular CLI.
 
 
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
+
+(window as any).global = window;
+
+(window as any).Buffer = (window as any).Buffer || require('buffer').Buffer;
+
+global.process = require('process');
+

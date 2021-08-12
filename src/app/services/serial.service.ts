@@ -19,7 +19,7 @@ export class SerialService {
         await port.open({ baudRate: 9600 });
         this.reader = port.readable.getReader();
         this.writer = port.writable.getWriter();
-        // this.mavlink.loadMavlinkSerial(this.reader);
+        this.mavlink.loadMavlinkSerial(this.reader); // ERROR
         // this.verif = true;
       }
       catch(err) {

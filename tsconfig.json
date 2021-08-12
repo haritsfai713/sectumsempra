@@ -21,11 +21,17 @@
       "dom"
     ],
     "paths": {
-      "timer": [
-        "./node_modules/timer-browserify"
+      "timers": [
+        "./node_modules/timers-browserify"
       ],
       "stream": [
         "./node_modules/stream-browserify"
+      ],
+      "path": [
+        "./node_modules/path-browserify"
+      ],
+      "fs": [
+        "./node_modules/browserify-fs"
       ]
     }
 
