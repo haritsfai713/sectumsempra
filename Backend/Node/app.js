@@ -12,12 +12,14 @@ const userRouter = require("./router/userRouter");
 // INITIALIZE EXPRESS APP
 const app = express();
 
+
+
 // GLOBAL MIDDLEWARE
 // 1). Body parser, membuat req.body menjadi accessible dari data req
 app.use(express.json());
 // 2). Morgan Package untuk melihat request yang masuk
 app.use(morgan('dev'))
-// 3). CORS
+    // 3). CORS
 app.use(cors())
 
 // API ROUTES
@@ -27,18 +29,21 @@ app.use("/api/v1/users", userRouter);
 
 // SEND FAVICON (Secara default browser akan merequest ke /favicon, agar tidak terjadi error maka dibuat route ini)
 app.get("/favicon.ico", (req, res, next) => {
-  res.sendStatus(404); //HARUSNYA NGIRIM FILE FAVICON BENERAN,TAPI KALAU 404 NANTI BROWSER MAKE FAVICON DEFAULT
+    res.sendStatus(404); //HARUSNYA NGIRIM FILE FAVICON BENERAN,TAPI KALAU 404 NANTI BROWSER MAKE FAVICON DEFAULT
 });
 
 // HANDLING UNAVAILABLE ROUTE
 app.all("*", (req, res, next) => {
-  next(
-    new createError(
-      400,
-      `Tidak bisa menemukan ${req.originalUrl} dari server ini!`
-    )
-  );
+    next(
+        new createError(
+            400,
+            `Tidak bisa menemukan ${req.originalUrl} dari server ini!`
+        )
+    );
 });
+
+// buat deploy angular
+// app.listen(process.env.PORT || 8080)
 
 //GLOBAL ERROR HANDLER MIDDLEWARE
 
