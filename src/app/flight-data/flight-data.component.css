@@ -155,10 +155,10 @@ ul li:hover a{
   color: #f56200;
   text-align: center;
   margin: 20px 20px;
-  cursor: pointer;
   transition: .5s;
 }
 .fas {
+  cursor: pointer;
   transition: .5s;
 }
 .fas:hover {

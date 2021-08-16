@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import * as anime from 'animejs';
 import { AuthService } from '../services/auth.service';
 import { FlightDataService } from '../services/flight-data.service';
+import { VoiceActivationService } from '../services/voice-activation.service';
 anime;
 
 @Component({
@@ -19,8 +20,11 @@ export class FlightDataComponent implements OnInit {
   constructor(
     private flightdataservice: FlightDataService,
     private auth: AuthService,
-    private rout: Router
-  ) {}
+    private rout: Router,
+    private voice: VoiceActivationService
+  ) {
+    this.voice.init();
+  }
 
   ngOnInit(): void {
     this.auth.verifyToken().subscribe(
@@ -32,5 +36,19 @@ export class FlightDataComponent implements OnInit {
         }
       }
     );
+
   }
+
+  startVoice(){
+    this.voice.start();
+
+  }
+
+  stopVoice(){
+    this.voice.stop();
+  }
+
+
+
+
 }

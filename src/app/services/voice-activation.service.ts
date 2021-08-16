@@ -12,7 +12,9 @@ recognition =  new webkitSpeechRecognition();
   speech = new SpeechSynthesisUtterance();
   isStoppedSpeechRecog = false;
   public text = '';
+  public transc = '';
   tempWords : any;
+
 
   constructor() { }
 
@@ -27,7 +29,7 @@ recognition =  new webkitSpeechRecognition();
         .map((result) => result.transcript)
         .join('');
       this.tempWords = transcript;
-      console.log(transcript);
+      this.transc = transcript;
     });
   }
 
@@ -42,6 +44,8 @@ recognition =  new webkitSpeechRecognition();
       } else {
         this.wordConcat()
         this.recognition.start();
+        this.readoutloud();
+
       }
     });
   }
@@ -55,10 +59,21 @@ recognition =  new webkitSpeechRecognition();
   wordConcat() {
     this.text = this.text + ' ' + this.tempWords + '.';
     this.tempWords = '';
+
   }
   readoutloud() {
 
-     this.speech.text = this.text;
+    if(this.transc.includes("altitude")){
+      this.speech.text = "current altitude is meter";
+    }
+    if(this.transc.includes("ground speed")){
+      this.speech.text = "current ground speed is meter per second";
+    }
+    if(this.transc.includes("battery")){
+      this.speech.text = "current battery is percent";
+    }
+
+    //  this.speech.text = "hello"
      this.speech.volume = 1;
      this.speech.rate = 1;
      this.speech.pitch = 1;
