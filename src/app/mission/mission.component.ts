@@ -11,6 +11,7 @@ import { AuthService } from '../services/auth.service';
 export class MissionComponent implements OnInit {
   public Lon = 107.5721
   public Lat = -6.9823
+  public isMap = true
 
   constructor(private auth: AuthService, private rout: Router) { }
 

@@ -34,7 +34,7 @@ import LineString from 'ol/geom/LineString';
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit {
-  @Input() isMap = true;
+  @Input("isMap") public isMap: any;
 
 
   public map: Map | undefined;
