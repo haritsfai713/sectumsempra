@@ -9,6 +9,8 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./mission.component.css']
 })
 export class MissionComponent implements OnInit {
+  public Lon = 107.5721
+  public Lat = -6.9823
 
   constructor(private auth: AuthService, private rout: Router) { }
 
