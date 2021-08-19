@@ -17,6 +17,8 @@ export class FlightDataComponent implements OnInit {
     "nama": "",
     "email" : "",
   }
+  public isMap = false;
+
   constructor(
     private flightdataservice: FlightDataService,
     private auth: AuthService,
