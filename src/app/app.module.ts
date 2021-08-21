@@ -17,6 +17,7 @@ import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { MapComponent } from './map/map.component';
 import { LandingComponent } from './landing/landing.component';
+import { WaypointEditorComponent } from './waypoint-editor/waypoint-editor.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { LandingComponent } from './landing/landing.component';
     MissionComponent,
     ParameterComponent,
     MapComponent,
-    LandingComponent
+    LandingComponent,
+    WaypointEditorComponent
   ],
   imports: [
     BrowserModule,
