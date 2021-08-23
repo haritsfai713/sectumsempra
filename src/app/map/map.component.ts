@@ -20,7 +20,7 @@ import { Title } from '@angular/platform-browser';
 import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 
 
-//import from local 
+//import from local
 import { WaypointService } from '../services/waypoint.service';
 import { MavlinkService } from '../services/mavlink.service';
 import { FlightDataService } from '../services/flight-data.service';
@@ -38,22 +38,22 @@ export class MapComponent implements OnInit {
 
 
   public map: Map | undefined;
-  constructor(private waypointService: WaypointService, 
+  constructor(private waypointService: WaypointService,
     private MavlinkService: MavlinkService,
     private flightDataService: FlightDataService) { }
 
   ngOnInit(): void {
-    this.initmap(this.waypointService, this.MavlinkService, this.flightDataService,this.isMap); 
+    this.initmap(this.waypointService, this.MavlinkService, this.flightDataService,this.isMap);
   }
   initmap(waypointService:any, MavlinkService:any, flightDataService:any,OnMission:any) {
     console.log("calling initmap");
-    var lenAwal = -1; //buar pas diinisialisasi dia pasti salah dan masuk ke refresh mission 
+    var lenAwal = -1; //buar pas diinisialisasi dia pasti salah dan masuk ke refresh mission
 
     //untuk icon pesawat
     var planeFeature = new Feature({
       geometry : new Point(fromLonLat([107.5721, -6.9823]))
     });
-    
+
     planeFeature.setStyle(new Style({
       image : new Icon(({
         src: 'assets/plane.svg',
@@ -62,16 +62,16 @@ export class MapComponent implements OnInit {
         rotation : 1*3.14/360
       }))
     }));
-    
+
     var planeSource = new VectorSource({
       features: [planeFeature]
     });
-    
+
     var planeLayer = new VectorLayer({
       source : planeSource
     });
-    
-    //untuk waypoint 
+
+    //untuk waypoint
     var wpFeature:any = []
     var waypointSource = new VectorSource({
       features : wpFeature
@@ -86,12 +86,12 @@ export class MapComponent implements OnInit {
     var lineSource = new VectorSource({
       features : lineFeature
     });
-    
+
     var lineLayer = new VectorLayer({
       source : lineSource
     });
 
-    
+
     this.map = new Map({
       target: 'map',
       layers: [
@@ -120,12 +120,12 @@ export class MapComponent implements OnInit {
       })
 
     });
-    this.map.on('singleclick', function (evt){ 
+    this.map.on('singleclick', function (evt){
       if (OnMission){
-        var Coordinate = toLonLat(evt.coordinate); //coordinate openlayer to coordinate 
+        var Coordinate = toLonLat(evt.coordinate); //coordinate openlayer to coordinate
         var longitude = Coordinate[0];
         var latitude = Coordinate[1];
-        
+
         /* CODINGAN AFIF */
         // Kumpulin kordinat nanti baru dikirim lewat fungsi collectWaypoint
         //collectionCordinate.push({latitude, longitude});
@@ -142,7 +142,7 @@ export class MapComponent implements OnInit {
       var temp_planeFeature = new Feature({
         geometry : new Point(fromLonLat(MavlinkService.getCoordinate()))//masi pake data dummy
       });
-      
+
       temp_planeFeature.setStyle(new Style({
           image : new Icon(({
           src: 'assets/plane.svg',
@@ -154,17 +154,17 @@ export class MapComponent implements OnInit {
       }));
       planeSource.addFeature(temp_planeFeature)
       //cek misi beda atau ngga
-      
-        // if (!(lenAwal == waypointService.getCoordinateArray().length)){
-        //   //console.log("refreshing Mission")
-        //   refreshMission()
-        // }
+
+        if (!(lenAwal == waypointService.getCoordinateArray().length)){
+          //console.log("refreshing Mission")
+          refreshMission()
+        }
       lenAwal = waypointService.getCoordinateArray().length
     },100)
 
 
     function refreshMission() {
-      
+
       var len = waypointService.getCoordinateArray().length;
       for(var i = 0; i< len; i++){
         //console.log(waypointService.getCoordinateArray()[i])
@@ -180,7 +180,7 @@ export class MapComponent implements OnInit {
           scale : 0.5
           }))
         })); //style wp nya
-        
+
         wpFeature.push(
           temp_waypoint
         );//push feature ke list feature
@@ -198,7 +198,7 @@ export class MapComponent implements OnInit {
             )
             var templineFeature = new Feature({
               geometry : line
-            });        
+            });
             templineFeature.setStyle(
               new Style({
                 stroke: new Stroke({
@@ -233,16 +233,16 @@ export class MapComponent implements OnInit {
             );
           };
       }
-      
+
       //refresh source line
       lineSource.clear()
-  
+
       lineSource.addFeatures(lineFeature)
       lineFeature = []
-      
+
       //refresh source wp
       waypointSource.clear();
-      
+
       waypointSource.addFeatures(wpFeature);
       wpFeature = [];
     };

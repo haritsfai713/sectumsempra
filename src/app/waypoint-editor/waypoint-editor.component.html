@@ -1,0 +1,16 @@
+<table id="customers">
+  <tr>
+    <th>Command</th>
+    <th>Longitude</th>
+    <th>Latitude</th>
+    <th>Altitude</th>
+    <th>Frame</th>
+  </tr>
+  <tr *ngFor = "let wp of waypoints">
+      <td>{{wp.Command}}</td>
+      <td>{{wp.longitude}}</td>
+      <td>{{wp.latitude}}</td>
+      <td>{{wp.altitude}}</td>
+      <td>{{wp.frame}}</td>
+  </tr>
+</table>
