@@ -8,6 +8,7 @@ const cors = require("cors")
 // const parameterRouter = require("./router/parameterRouter");
 // const waypointRouter = require("./router/waypointRouter");
 const userRouter = require("./router/userRouter");
+const flightdataRouter = require("./router/flightDataRouter")
 
 // INITIALIZE EXPRESS APP
 const app = express();
@@ -24,6 +25,7 @@ app.use(cors())
 
 // API ROUTES
 app.use("/api/v1/users", userRouter);
+app.use("/api/v1/flightdata", flightdataRouter);
 // app.use("/api/v1/parameters", parameterRouter);
 // app.use("/api/v1/waypoints", waypointRouter);
 

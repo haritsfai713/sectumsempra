@@ -1,8 +1,14 @@
-const express = require('express');
+const express = require("express");
 
-var router = express.Router();
+const flightdataController = require("../controller/flightdataController");
+const router = express.Router();
 
-// flight data without Database because its too long to use database 
+router.post("/", flightdataController.sendFlightData);
+router.get("/", (req, res, next) => {
+  res.send("hellow");
+});
+
+// flight data without Database because its too long to use database
 
 // var {
 //     FlightData
@@ -11,3 +17,5 @@ var router = express.Router();
 // router.get('/', (req, res) => {
 //     F
 // })
+
+module.exports = router;
