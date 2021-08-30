@@ -4,6 +4,11 @@ const createError = require("http-errors");
 const morgan = require("morgan")
 const cors = require("cors")
 
+
+// //import buat socket.io
+// const http = require('http')
+// const SocketIO = require('socket.io')
+
 // LOCAL IMPORT
 // const parameterRouter = require("./router/parameterRouter");
 // const waypointRouter = require("./router/waypointRouter");
@@ -12,6 +17,17 @@ const flightdataRouter = require("./router/flightDataRouter")
 
 // INITIALIZE EXPRESS APP
 const app = express();
+
+// // buat socket
+// const server = http.server(app);
+
+// const port = process.env.PORT || 3000;
+
+// server.listen(port, () => {
+//     console.log(`started on port : ${port}`);
+// })
+
+// io.on('connection', (socket))
 
 
 

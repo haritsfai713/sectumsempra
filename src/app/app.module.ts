@@ -13,6 +13,7 @@ import { MissionComponent } from './mission/mission.component';
 import { ParameterComponent } from './parameter/parameter.component';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './services/auth.service';
+import { WebSocketService } from './services/web-socket.service';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { MapComponent } from './map/map.component';
@@ -40,7 +41,7 @@ import { WaypointEditorComponent } from './waypoint-editor/waypoint-editor.compo
     HttpClientModule,
     FormsModule
   ],
-  providers: [AuthService, AuthGuard,
+  providers: [AuthService, AuthGuard,WebSocketService,
   {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,

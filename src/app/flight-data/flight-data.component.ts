@@ -1,10 +1,12 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit} from '@angular/core';
+import { Component, OnDestroy, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import * as anime from 'animejs';
 import { AuthService } from '../services/auth.service';
 import { FlightDataService } from '../services/flight-data.service';
 import { VoiceActivationService } from '../services/voice-activation.service';
+import { WebSocketService } from '../services/web-socket.service';
+
 anime;
 
 @Component({
@@ -12,18 +14,23 @@ anime;
   templateUrl: './flight-data.component.html',
   styleUrls: ['./flight-data.component.css'],
 })
-export class FlightDataComponent implements OnInit {
+export class FlightDataComponent implements OnInit, OnDestroy {
   public user = {
     "nama": "",
     "email" : "",
   }
   public isMap = false;
 
+  public alt = 0;
+  public gs = 0 
+
   constructor(
     private flightdataservice: FlightDataService,
     private auth: AuthService,
     private rout: Router,
-    private voice: VoiceActivationService
+    private voice: VoiceActivationService,
+    public webSocketService : WebSocketService
+    
   ) {
     this.voice.init();
   }
@@ -39,6 +46,20 @@ export class FlightDataComponent implements OnInit {
       }
     );
 
+    this.webSocketService.openWebSocket()
+    setInterval( () => {
+      this.alt = this.webSocketService.alt;
+      this.gs = this.webSocketService.gs;
+    }, 200);
+
+
+
+
+
+  }
+
+  ngOnDestroy() {
+    this.webSocketService.closeWebsocket()
   }
 
   startVoice(){

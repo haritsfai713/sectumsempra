@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-./node_modules/mavlink/src/mavlink.js:1:9-22 - Error: Module not found: Error: Can't resolve 'fs' in 'C:\stei itb\Aksantara\gcs_webapp_2021\node_modules\mavlink\src'
-
-./node_modules/xml2js/lib/parser.js:38:17-47 - Error: Module not found: Error: Can't resolve 'timers' in 'C:\stei itb\Aksantara\gcs_webapp_2021\node_modules\xml2js\lib'
-
-BREAKING CHANGE: webpack < 5 used to include polyfills for node.js core modules by default.
-This is no longer the case. Verify if you need this module and configur
-
-https://stackoverflow.com/questions/50313745/angular-6-process-is-not-defined-when-trying-to-serve-application
-=======
 # GCS WebApp 2021 
 
 GCS WebApp 2021 merupakan sistem yang berbasis web. dan digunakan sebagai mission planner.
@@ -57,4 +47,3 @@ program dibuat oleh :
 1. Moch. Faiq Al-Harits
 2. Fadillah Azhar D.K.
 3. M.Tamiramin H.S.
->>>>>>> b59bb9914d101c9d7df4cb6e045f8c5ca0256bc4
