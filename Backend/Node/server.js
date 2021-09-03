@@ -45,20 +45,19 @@ const wss = new WebSocket.Server({
 
 wss.on('connection', function connection(ws) {
     ws.on('message', function incoming(message) {
-        console.log('received: %s', message);
-    });
-
-    setInterval(function() {
-        var altint = Math.floor(Math.random() * 10) + 1;
+        let altint = JSON.parse(message)
         const alt = {
             nama: "alt",
-            value: altint
+            value: altint["value"]["alt"].toFixed(2)
         }
         wss.clients.forEach(function each(client) {
             if (client.readyState === WebSocket.OPEN) {
                 client.send(JSON.stringify(alt))
             }
         })
+    });
+
+    setInterval(function() {
         var gstint = Math.floor(Math.random() * 10) + 1;
         const gs = {
             nama: "gs",

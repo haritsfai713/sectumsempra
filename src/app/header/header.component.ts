@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from '../services/auth.service';
-import {SerialService} from "../services/serial.service";
 import { NgModel } from "@angular/forms"
 
 @Component({
@@ -25,7 +24,7 @@ export class HeaderComponent implements OnInit {
   public connectUsing = "";
 
 
-  constructor(private auth: AuthService, private serial : SerialService) { }
+  constructor(private auth: AuthService) { }
 
   ngOnInit(): void {
   }
@@ -44,7 +43,7 @@ export class HeaderComponent implements OnInit {
 
   connect(){
     if (this.connectUsing === "serial") {
-      this.serial.connect();
+      // this.serial.connect();
     }
   }
 
