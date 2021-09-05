@@ -14,8 +14,8 @@ main {
   min-width: 150vh;
   background: linear-gradient(to right top, #ffc100, #ff4d00);
   display: flex;
-  /* align-items: center;
-  justify-content: center; */
+  align-items: center;
+  flex-direction: column;
 }
 body{
   min-height: 100vh;

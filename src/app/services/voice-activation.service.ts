@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { WebSocketService } from './web-socket.service';
 
 declare var webkitSpeechRecognition: any;
 declare var SpeechSynthesisUtterance: any;
@@ -13,10 +14,12 @@ recognition =  new webkitSpeechRecognition();
   isStoppedSpeechRecog = false;
   public text = '';
   public transc = '';
+  public alt = 0;
+  public gs = 0;
   tempWords : any;
 
 
-  constructor() { }
+  constructor(private webSocket: WebSocketService) { }
 
   init() {
 
@@ -31,6 +34,13 @@ recognition =  new webkitSpeechRecognition();
       this.tempWords = transcript;
       this.transc = transcript;
     });
+
+    this.webSocket.openWebSocket()
+    setInterval( () => {
+      this.alt = this.webSocket.alt;
+      this.gs = this.webSocket.gs;
+    }, 200);
+
   }
 
   start() {
@@ -64,7 +74,7 @@ recognition =  new webkitSpeechRecognition();
   readoutloud() {
 
     if(this.transc.includes("altitude")){
-      this.speech.text = "current altitude is meter";
+      this.speech.text = "current altitude is" + this.alt + "meter";
     }
     if(this.transc.includes("ground speed")){
       this.speech.text = "current ground speed is meter per second";
