@@ -76,8 +76,8 @@ recognition =  new webkitSpeechRecognition();
     if(this.transc.includes("altitude")){
       this.speech.text = "current altitude is" + this.alt + "meter";
     }
-    if(this.transc.includes("ground speed")){
-      this.speech.text = "current ground speed is meter per second";
+    if(this.transc.includes("ground") && this.transc.includes("speed")){
+      this.speech.text = "current ground speed is" + this.gs + "meter per second";
     }
     if(this.transc.includes("battery")){
       this.speech.text = "current battery is percent";
