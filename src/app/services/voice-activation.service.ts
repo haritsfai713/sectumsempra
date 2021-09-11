@@ -35,7 +35,7 @@ recognition =  new webkitSpeechRecognition();
       this.transc = transcript;
     });
 
-    this.webSocket.openWebSocket()
+    // this.webSocket.openWebSocket()
     setInterval( () => {
       this.alt = this.webSocket.alt;
       this.gs = this.webSocket.gs;

@@ -2,6 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnDestroy, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import * as anime from 'animejs';
+import { Socket } from 'socket.io-client';
 import { AuthService } from '../services/auth.service';
 import { FlightDataService } from '../services/flight-data.service';
 import { VoiceActivationService } from '../services/voice-activation.service';
@@ -22,7 +23,8 @@ export class FlightDataComponent implements OnInit, OnDestroy {
   public isMap = false;
 
   public alt = 0;
-  public gs = 0 
+  public gs = 0
+  public room = ""; 
 
   constructor(
     private flightdataservice: FlightDataService,
@@ -46,11 +48,16 @@ export class FlightDataComponent implements OnInit, OnDestroy {
       }
     );
 
-    this.webSocketService.openWebSocket()
-    setInterval( () => {
-      this.alt = this.webSocketService.alt;
-      this.gs = this.webSocketService.gs;
-    }, 200);
+    this.webSocketService.listen("test-event").subscribe((data) => {
+      
+      console.log(data);
+    })
+
+    // this.webSocketService.openWebSocket()
+    // setInterval( () => {
+    //   this.alt = this.webSocketService.alt;
+    //   this.gs = this.webSocketService.gs;
+    // }, 200);
 
 
 
@@ -59,7 +66,7 @@ export class FlightDataComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.webSocketService.closeWebsocket()
+    // this.webSocketService.closeWebsocket()
   }
 
   startVoice(){
@@ -71,6 +78,10 @@ export class FlightDataComponent implements OnInit, OnDestroy {
     this.voice.stop();
   }
 
+  onKey(event: any) {
+    this.room = event.target.value
+    this.webSocketService.emit("room", this.room); 
+  }
 
 
 
