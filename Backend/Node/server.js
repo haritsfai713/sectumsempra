@@ -85,10 +85,10 @@ const io = require('socket.io')(server, {
 
 io.on('connection', socket => {
     console.log(socket.id)
-    socket.on("room", room => {
+    socket.on("room", room, data => {
         socket.room = room
         if (room === '') {
-            io.emit("test-event", "hey this is from room")
+            io.emit("test-event", data)
         } else {
             socket.join(room);
             // setInterval(() => {
@@ -103,7 +103,7 @@ io.on('connection', socket => {
             //         io.to(room).emit('test-event', "hey")
             //     }
             // }, 1000)
-            io.to(room).emit('test-event', `private message from this ${room}`)
+            io.to(room).emit('test-event', `private message from this ${room}, data : ${data}`)
         }
         console.log(room);
     })

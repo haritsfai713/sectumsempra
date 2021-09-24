@@ -80,7 +80,7 @@ export class FlightDataComponent implements OnInit, OnDestroy {
 
   onKey(event: any) {
     this.room = event.target.value
-    this.webSocketService.emit("room", this.room); 
+    this.webSocketService.emit("room", this.room, ""); 
   }
 
 
