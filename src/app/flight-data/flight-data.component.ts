@@ -77,11 +77,12 @@ export class FlightDataComponent implements OnInit, OnDestroy {
   stopVoice(){
     this.voice.stop();
   }
-
   onKey(event: any) {
     this.room = event.target.value
-    this.webSocketService.emit("room", this.room, ""); 
+    const payload = { room : this.room, data : ""}
+    this.webSocketService.emit("room", JSON.stringify(payload)); 
   }
+
 
 
 

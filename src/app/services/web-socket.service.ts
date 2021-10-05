@@ -14,7 +14,7 @@ export class WebSocketService {
     this.socket = io("http://localhost:3000")
     
   }
-  listen(eventName: string) {
+ listen(eventName: string) {
     return new Observable((subscriber) => {
       this.socket.on(eventName, (data: any) => {
         subscriber.next(data); 
@@ -22,9 +22,10 @@ export class WebSocketService {
     })
   }
 
-  emit(eventName : any,room : any,  data : any) {
-    this.socket.emit(eventName, room, data);
+  emit(eventName : any, data : any) {
+    this.socket.emit(eventName, data);
   }
+
 
 
 

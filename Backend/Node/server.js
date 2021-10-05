@@ -82,15 +82,15 @@ const io = require('socket.io')(server, {
     },
 });
 // socket.io
-
 io.on('connection', socket => {
     console.log(socket.id)
-    socket.on("room", room, data => {
-        socket.room = room
-        if (room === '') {
-            io.emit("test-event", data)
+    socket.on("room", payload => {
+        socket.room = payload.room
+        const payloadjson = JSON.parse(payload)
+        if (payloadjson.room === '') {
+            io.emit("test-event", "hey this is from room")
         } else {
-            socket.join(room);
+            socket.join(payloadjson.room);
             // setInterval(() => {
             //     var gstint = Math.floor(Math.random() * 100) + 1;
             //     const gs = {
@@ -103,9 +103,9 @@ io.on('connection', socket => {
             //         io.to(room).emit('test-event', "hey")
             //     }
             // }, 1000)
-            io.to(room).emit('test-event', `private message from this ${room}, data : ${data}`)
+            io.to(payloadjson.room).emit('test-event', `private message from this ${payloadjson.room}` + ` data ${ payloadjson.data}`)
         }
-        console.log(room);
+        console.log(JSON.parse(payload));
     })
     socket.emit('test-event', 'here some data')
 })
