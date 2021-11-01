@@ -89,7 +89,7 @@ io.on('connection', socket => {
         const payloadjson = JSON.parse(payload)
         if (payloadjson.room === '') {
             io.emit("test-event", "hey this is from room")
-            io.to(payloadjson.room).emit('test-event', `private message from this ${payloadjson.room}` + ` data ${ payloadjson.data}`)
+            io.emit('test-event', `private message from this ${payloadjson.room}` + ` data ${ payloadjson.data}`)
         } else {
             socket.join(payloadjson.room);
             // setInterval(() => {
