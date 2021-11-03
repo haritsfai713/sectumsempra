@@ -30,4 +30,12 @@ export class WaypointEditorComponent implements OnInit {
         this.waypoints = waypoints);
   }
 
+  delWaypoint(num:number) {
+
+    console.log(num) ;
+    this.waypointService.remove(num)
+    this.getWaypoints()
+    console.log(this.waypoints)
+  }
+
 }

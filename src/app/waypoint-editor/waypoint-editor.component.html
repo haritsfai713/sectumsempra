@@ -5,12 +5,14 @@
     <th>Latitude</th>
     <th>Altitude</th>
     <th>Frame</th>
+    <th>Delete</th>
   </tr>
-  <tr *ngFor = "let wp of waypoints">
+  <tr *ngFor = "let wp of waypoints; index as i">
       <td>{{wp.Command}}</td>
       <td>{{wp.longitude}}</td>
       <td>{{wp.latitude}}</td>
       <td>{{wp.altitude}}</td>
       <td>{{wp.frame}}</td>
+      <td><button (click)="delWaypoint(i)">🗑️</button></td>
   </tr>
 </table>
