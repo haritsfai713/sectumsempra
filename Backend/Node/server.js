@@ -87,6 +87,11 @@ io.on('connection', socket => {
     socket.on("room", payload => {
         socket.room = payload.room
         const payloadjson = JSON.parse(payload)
+        const mavData = JSON.parse(payloadjson.data.fields)
+        const data = {
+          message: payloadjson.data.message,
+          mavData
+        }
         if (payloadjson.room === '') {
             io.emit("test-event", "hey this is from room")
             io.emit('test-event', `private message from this ${payloadjson.room}` + ` data ${ payloadjson.data}`)
@@ -104,9 +109,9 @@ io.on('connection', socket => {
             //         io.to(room).emit('test-event', "hey")
             //     }
             // }, 1000)
-            io.to(payloadjson.room).emit('test-event', `private message from this ${payloadjson.room}` + ` data ${ payloadjson.data}`)
+            io.to(payloadjson.room).emit('test-event', JSON.stringify(data))
         }
-        console.log(JSON.parse(payload));
+        console.log(data);
     })
     socket.emit('test-event', 'here some data')
 })
