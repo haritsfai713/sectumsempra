@@ -5,10 +5,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 // import from local
 import { ObjectWaypoint } from '../models/waypoint';
-import { WAYPOINTS } from '../models/waypoints'; 
+import { WAYPOINTS } from '../models/waypoints';
 import { FlightDataService } from "./flight-data.service";
 
-// import from rxjs 
+// import from rxjs
 import { Observable, of } from 'rxjs';
 
 
@@ -18,17 +18,17 @@ import { Observable, of } from 'rxjs';
 })
 
 export class WaypointService {
-  
+
   constructor(private httpClient: HttpClient, private flightDataService: FlightDataService) {console.log('Initialize WaypoinitService') }
   waypoints = WAYPOINTS;
-  
+
   add(waypoint: ObjectWaypoint) {
     this.waypoints.push(waypoint);
     //console.log('totalWaypoints in service', this.waypoints.length)
     //console.log('added to service', waypoint.g   etCoordinate())
     //console.log('finalWaypoint',this.waypoints)
   }
-  
+
   addOn(waypoint : ObjectWaypoint, n : number){
     let temp_waypoints = this.waypoints
     this.waypoints = temp_waypoints.slice(0,n).concat(waypoint).concat(temp_waypoints.slice(n , -1))
@@ -40,7 +40,7 @@ export class WaypointService {
 
   remove(n : number){
     let temp_waypoints = this.waypoints
-    this.waypoints = temp_waypoints.slice(0,n-1).concat(temp_waypoints.slice(n , -1)) 
+    this.waypoints = temp_waypoints.slice(0,n).concat(temp_waypoints.slice(n , -1))
   }
 
   getCoordinateOn(n:number){
@@ -54,8 +54,8 @@ export class WaypointService {
     }
     return temp
   }
-  //save(filename:string){} 
-  
+  //save(filename:string){}
+
   getWaypoints(): Observable<ObjectWaypoint[]> {
     return of(this.waypoints);
   }
@@ -65,7 +65,7 @@ export class WaypointService {
     var temp: any[];
     temp = []
     for(let i = 0;i<this.getCoordinateArray().length;i++){
-      let arrTotal = this.getCoordinateArray() 
+      let arrTotal = this.getCoordinateArray()
       //console.log("arrTotal:",arrTotal)
       let latitude = arrTotal [i][1];
       let longitude = arrTotal [i][0];
