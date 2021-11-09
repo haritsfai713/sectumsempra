@@ -87,7 +87,7 @@ io.on('connection', socket => {
     socket.on("room", payload => {
         socket.room = payload.room
         const payloadjson = JSON.parse(payload)
-        const mavData = JSON.parse(payloadjson.data.fields)
+        const mavData = payloadjson.data.fields
         const data = {
           message: payloadjson.data.message,
           mavData

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { io } from "socket.io-client"; 
+import { io } from "socket.io-client";
 
 @Injectable({
   providedIn: 'root'
@@ -9,15 +9,16 @@ export class WebSocketService {
 
   public alt = 0;
   public gs = 0;
-  public socket: any; 
+  public socket: any;
+  public room = "";
   constructor() {
     this.socket = io("http://localhost:3000")
-    
+
   }
  listen(eventName: string) {
     return new Observable((subscriber) => {
       this.socket.on(eventName, (data: any) => {
-        subscriber.next(data); 
+        subscriber.next(data);
       })
     })
   }
@@ -30,7 +31,7 @@ export class WebSocketService {
 
 
   // public openWebSocket() {
-    
+
 
   //   this.webSocket = new WebSocket('ws://localhost:3000');
 
@@ -66,9 +67,9 @@ export class WebSocketService {
   // public sendMessage() {
   //   this.webSocket?.send("hello from client 1");
   // }
-  
+
   // public closeWebsocket() {
-  //   this.webSocket?.close(); 
+  //   this.webSocket?.close();
   // }
 
 

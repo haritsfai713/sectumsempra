@@ -26,6 +26,7 @@ import { MavlinkService } from '../services/mavlink.service';
 import { FlightDataService } from '../services/flight-data.service';
 import { ObjectWaypoint } from '../models/waypoint';
 import LineString from 'ol/geom/LineString';
+import { WebSocketService } from '../services/web-socket.service';
 
 
 @Component({
@@ -37,10 +38,14 @@ export class MapComponent implements OnInit {
   @Input("isMap") public isMap: any;
 
 
+
   public map: Map | undefined;
   constructor(private waypointService: WaypointService,
     private MavlinkService: MavlinkService,
-    private flightDataService: FlightDataService) { }
+    private flightDataService: FlightDataService,
+    private websocketService : WebSocketService) {
+      this.MavlinkService.Init()
+     }
 
   ngOnInit(): void {
     this.initmap(this.waypointService, this.MavlinkService, this.flightDataService,this.isMap);
@@ -59,7 +64,7 @@ export class MapComponent implements OnInit {
         src: 'assets/plane.svg',
         imgSize: [600, 600],
         scale: 0.1,
-        rotation : 1*3.14/360
+        rotation : MavlinkService.getyaw()
       }))
     }));
 
@@ -140,6 +145,7 @@ export class MapComponent implements OnInit {
       //console.log("getmission : ",flightDataService.getMission())
       planeSource.clear()
       var temp_planeFeature = new Feature({
+        // geometry : new Point(fromLonLat(MavlinkService.getCoordinate()))//masi pake data dummy
         geometry : new Point(fromLonLat(MavlinkService.getCoordinate()))//masi pake data dummy
       });
 
@@ -149,12 +155,11 @@ export class MapComponent implements OnInit {
           imgSize: [600, 600],
           scale: 0.1,
           // rotation : flightDataService.getFlightRecords().yaw
-          rotation: 0
+          rotation: MavlinkService.getyaw()
         }))
       }));
       planeSource.addFeature(temp_planeFeature)
       //cek misi beda atau ngga
-
         if (!(lenAwal == waypointService.getCoordinateArray().length)){
           //console.log("refreshing Mission")
           refreshMission()
