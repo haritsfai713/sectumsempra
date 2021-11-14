@@ -11,6 +11,7 @@ export class WebSocketService {
   public gs = 0;
   public socket: any;
   public room = "";
+  public MODE : any;
   constructor() {
     this.socket = io("http://localhost:3000")
 

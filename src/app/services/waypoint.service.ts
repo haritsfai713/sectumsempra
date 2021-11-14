@@ -21,6 +21,7 @@ export class WaypointService {
 
   constructor(private httpClient: HttpClient, private flightDataService: FlightDataService) {console.log('Initialize WaypoinitService') }
   waypoints = WAYPOINTS;
+  public altitude = 100
 
   add(waypoint: ObjectWaypoint) {
     this.waypoints.push(waypoint);
@@ -50,7 +51,7 @@ export class WaypointService {
   getCoordinateArray(){
     let temp: number[][] = [];
     for (var i = 0; i < (this.waypoints.length); i++){
-      temp.push(this.waypoints[i].getCoordinate() );
+      temp.push(this.waypoints[i].getCoordinate().concat(this.waypoints[i].getAltitude()) );
     }
     return temp
   }
@@ -64,16 +65,18 @@ export class WaypointService {
     //console.log(this.getCoordinateArray())
     var temp: any[];
     temp = []
+    console.log(this.getCoordinateArray())
     for(let i = 0;i<this.getCoordinateArray().length;i++){
       let arrTotal = this.getCoordinateArray()
       //console.log("arrTotal:",arrTotal)
-      let latitude = arrTotal [i][1];
-      let longitude = arrTotal [i][0];
-      temp.push({latitude, longitude});
+      let latitude = arrTotal[i][1];
+      let longitude = arrTotal[i][0];
+      let altitude = arrTotal[i][2];
+      temp.push({latitude, longitude, altitude});
       //console.log("latitude:",latitude)
       //console.log(temp)
     }
 
-    return (this.flightDataService.sendWaypoint(temp));
+    return (temp);
   }
 }

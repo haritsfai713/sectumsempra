@@ -122,6 +122,16 @@ button.home-btn:hover {
 
 }
 
+.instruction {
+  font-family: sans-serif;
+  color: white;
+  margin: 10px;
+}
+
+.instruction p {
+  font-size: 10px;
+}
+
 
 
 

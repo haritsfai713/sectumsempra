@@ -87,6 +87,8 @@ io.on('connection', socket => {
     socket.on("room", payload => {
         socket.room = payload.room
         const payloadjson = JSON.parse(payload)
+
+        console.log(payloadjson)
         const mavData = payloadjson.data.fields
         const data = {
           message: payloadjson.data.message,
@@ -98,20 +100,38 @@ io.on('connection', socket => {
         } else {
             socket.join(payloadjson.room);
             // setInterval(() => {
-            //     var gstint = Math.floor(Math.random() * 100) + 1;
+                //     var gstint = Math.floor(Math.random() * 100) + 1;
             //     const gs = {
-            //         nama: "gs",
-            //         value: gstint
+                //         nama: "gs",
+                //         value: gstint
             //     }
             //     if (room == "coba") {
-            //         io.to(room).emit('test-event', gs)
-            //     } else {
-            //         io.to(room).emit('test-event', "hey")
-            //     }
-            // }, 1000)
-            io.to(payloadjson.room).emit('test-event', JSON.stringify(data))
-        }
-        console.log(data);
-    })
-    socket.emit('test-event', 'here some data')
-})
+                //         io.to(room).emit('test-event', gs)
+                //     } else {
+                    //         io.to(room).emit('test-event', "hey")
+                    //     }
+                    // }, 1000)
+                    io.to(payloadjson.room).emit('test-event', JSON.stringify(data))
+                }
+                // console.log(data);
+            })
+            socket.emit('test-event', 'here some data')
+            socket.on("arm_disarm", payload => {
+                socket.room = payload.room
+                const payloadjson = JSON.parse(payload)
+                io.to(payloadjson.room).emit('arm_disarm', payloadjson.data)
+                console.log(payloadjson)
+            })
+            socket.on("mission", payload => {
+                socket.room = payload.room
+                const payloadjson = JSON.parse(payload)
+                io.to(payloadjson.room).emit('mission', payloadjson.data)
+                console.log(payloadjson)
+            })
+            socket.on("read-mission", payload => {
+                socket.room = payload.room
+                const payloadjson = JSON.parse(payload)
+                io.to(payloadjson.room).emit('read-mission', payloadjson.data)
+                console.log(payloadjson)
+            })
+        })

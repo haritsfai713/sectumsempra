@@ -15,6 +15,7 @@ recognition =  new webkitSpeechRecognition();
   public text = '';
   public transc = '';
   public room = 0;
+  public MODE : any;
 
   // FLIGHT DATA COMPONENT
   public parsedData : any;
@@ -142,6 +143,8 @@ recognition =  new webkitSpeechRecognition();
         this.wordConcat()
         this.recognition.start();
         this.readoutloud();
+        // this.transc = "";
+        // this.tempWords = "";
 
       }
     });
@@ -157,6 +160,7 @@ recognition =  new webkitSpeechRecognition();
   wordConcat() {
     this.text = this.text + ' ' + this.tempWords + '.';
     this.tempWords = '';
+    console.log(this.transc);
 
   }
   readoutloud() {
@@ -183,14 +187,41 @@ recognition =  new webkitSpeechRecognition();
       this.speech.text = "current position is at longitude of" + this.lon.toFixed(2) +"and latitude of" + this.lat.toFixed(2);
     }
 
+    if(this.transc.includes("arm") || this.transc.includes("arming")){
+
+      if(this.webSocketService.MODE === "ARMED") {
+        this.speech.text = "UAV is already armed";
+      }
+      else {
+        this.setMavMode();
+        this.speech.text = "UAV is armed";
+      }
+
+    }
+    if(this.transc.includes("disarm") || this.transc.includes("disarming")){
+
+      if(this.webSocketService.MODE === "DISARMED") {
+        this.speech.text = "UAV is already disarmed";
+      }
+      else {
+        this.setMavMode();
+        this.speech.text = "UAV is disarmed";
+      }
+
+    }
+
     //  this.speech.text = "hello"
+    // this.speech.text = text;
      this.speech.volume = 1;
      this.speech.rate = 1;
      this.speech.pitch = 1;
      console.log("success");
 
      window.speechSynthesis.speak(this.speech);
-    //  this.speech.text ="";
+     this.transc = "";
+
+
+     this.speech.text ="";
   }
 
   public convertMS(time:any) {
@@ -207,8 +238,22 @@ recognition =  new webkitSpeechRecognition();
       seconds: seconds
     };
   }
-
-
-
+  setMavMode() {
+    if (this.webSocketService.MODE === "DISARMED") {
+      this.MODE = "ARMED";
+      this.webSocketService.MODE = "ARMED"
+      const payload = { room: this.webSocketService.room, data: "ARMED" };
+      this.webSocketService.emit("arm_disarm", JSON.stringify(payload));
+    } else if (this.webSocketService.MODE === "ARMED") {
+      this.MODE = "DISARMED"
+      this.webSocketService.MODE = "DISARMED"
+      const payload = { room: this.webSocketService.room, data: "DISARMED" };
+      this.webSocketService.emit("arm_disarm", JSON.stringify(payload));
+    }
+  }
 }
+
+
+
+
 

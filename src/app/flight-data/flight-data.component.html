@@ -47,7 +47,10 @@
                     <p id="gdspeed" style="margin-bottom: 15px;" class="number">{{ groundspeed }}</p>
                     <p>Flight Time</p>
                     <p class="number"><span id="hour">00</span>:<span id="minute">00</span>:<span id="second">00</span></p>
-
+                </div>
+                <div class="arm">
+                    <div *ngIf = "armcheck(); else disarm"  class = "arm-button" (click)="setMavMode()">Armed</div>
+                    <ng-template #disarm><div  class = "arm-button" (click)="setMavMode()">Disarmed</div></ng-template>
                 </div>
                 <div class="voice-activation">
                     <i (click)="startVoice()" class="fas fa-microphone" id="active"></i>

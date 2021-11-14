@@ -38,6 +38,9 @@ export class FlightDataComponent implements OnInit, OnDestroy {
     seconds : 0
   };
 
+  //MAV MODE
+  public MODE = "DISARMED";
+
   constructor(
     private flightdataservice: FlightDataService,
     private auth: AuthService,
@@ -57,7 +60,7 @@ export class FlightDataComponent implements OnInit, OnDestroy {
       }
     });
 
-
+    this.webSocketService.MODE = this.MODE;
 
     this.webSocketService.listen('test-event').subscribe((data: any) => {
       if(this.room == "") {
@@ -69,6 +72,8 @@ export class FlightDataComponent implements OnInit, OnDestroy {
 
       }
       this.webSocketService.room = this.room ;
+
+      // console.log(this.webSocketService.MODE);
 
 
       switch (this.parsedData.message) {
@@ -96,12 +101,17 @@ export class FlightDataComponent implements OnInit, OnDestroy {
     //   this.alt = this.webSocketService.alt;
     //   this.gs = this.webSocketService.gs;
     // }, 200);
+
   }
 
   ngAfterViewInit() {
     requestAnimationFrame(() => {
       this.animateAll();
     });
+    // if(this.voice.transc.includes("altitude")) {
+    //   console.log("success");
+    //   this.voice.readoutloud("current altitude is" + this.alt.toFixed(2) + "meter");
+    // }
   }
 
   public animateAll() {
@@ -171,6 +181,11 @@ export class FlightDataComponent implements OnInit, OnDestroy {
 
   startVoice() {
     this.voice.start();
+
+    // if(this.voice.transc.includes("altitude")) {
+    //   console.log("success");
+    //   this.voice.readoutloud("current altitude is" + this.alt.toFixed(2) + "meter");
+    // }
   }
 
   stopVoice() {
@@ -194,6 +209,30 @@ export class FlightDataComponent implements OnInit, OnDestroy {
   onKey(event: any) {
     this.room = event.target.value;
     const payload = { room: this.room, data: '' };
+    console.log(payload)
     this.webSocketService.emit('room', JSON.stringify(payload));
+  }
+
+  armcheck() {
+    if(this.webSocketService.MODE === "ARMED") {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+
+  setMavMode() {
+    if (this.webSocketService.MODE === "DISARMED") {
+      this.MODE = "ARMED";
+      this.webSocketService.MODE = "ARMED"
+      const payload = { room: this.room, data: "ARMED" };
+      this.webSocketService.emit("arm_disarm", JSON.stringify(payload));
+    } else if (this.webSocketService.MODE === "ARMED") {
+      this.MODE = "DISARMED"
+      this.webSocketService.MODE = "DISARMED"
+      const payload = { room: this.room, data: "DISARMED" };
+      this.webSocketService.emit("arm_disarm", JSON.stringify(payload));
+    }
   }
 }

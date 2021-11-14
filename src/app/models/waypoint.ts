@@ -1,5 +1,5 @@
 export class ObjectWaypoint {
-    //field 
+    //field
     public Command : string;
     public longitude : number;
     public latitude: number;
@@ -37,5 +37,8 @@ export class ObjectWaypoint {
     //function
     getCoordinate(){
         return [this.longitude, this.latitude]
+    }
+    getAltitude() {
+        return this.altitude
     }
 }

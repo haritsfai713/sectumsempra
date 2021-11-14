@@ -177,9 +177,29 @@ i {
 
 }
 
+.arm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arm-button{
+  width: 150px;
+  background-color: #192E54;
+  border: none;
+  color: white;
+  padding: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  /* margin: 12px 0; */
+  border-radius: 2rem;
+  transition: .5s;
+}
+
 
 .parameter {
-  height: 35vh;
+  height: 33vh;
   width: 40vh;
   border-radius: 10px;
   background: rgb(255,193,0);

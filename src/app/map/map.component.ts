@@ -136,7 +136,7 @@ export class MapComponent implements OnInit {
         //collectionCordinate.push({latitude, longitude});
         /* ------------- */
         //console.log(collectionCordinate);
-        waypointService.add(new ObjectWaypoint('Waypoint',longitude,latitude,100,'Relative',false)); // nambah wp ke service
+        waypointService.add(new ObjectWaypoint('Waypoint',longitude,latitude, waypointService.altitude,'Relative',false)); // nambah wp ke service
         //refreshMission()
       }
     })
