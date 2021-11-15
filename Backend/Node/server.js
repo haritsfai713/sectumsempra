@@ -75,7 +75,7 @@ const server = app.listen(port, () => {
 // });
 
 
-
+const listroom = []
 const io = require('socket.io')(server, {
     cors: {
         origin: ["http://localhost:4200"]
@@ -99,6 +99,7 @@ io.on('connection', socket => {
             io.emit('test-event', `private message from this ${payloadjson.room}` + ` data ${ payloadjson.data}`)
         } else {
             socket.join(payloadjson.room);
+            listroom.concat(payload.room)
             // setInterval(() => {
                 //     var gstint = Math.floor(Math.random() * 100) + 1;
             //     const gs = {

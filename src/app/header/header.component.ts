@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { NgModel } from "@angular/forms"
+import { WebSocketService } from '../services/web-socket.service';
 
 @Component({
   selector: 'app-header',
@@ -19,12 +20,13 @@ export class HeaderComponent implements OnInit {
 
   public list = false;
   public user = false;
+  public room :any;
 
   // CONNECT KE UAV LEWAT APA ? (serial, udp)
   public connectUsing = "";
 
 
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService, public websocket : WebSocketService) { }
 
   ngOnInit(): void {
   }
