@@ -211,6 +211,7 @@ export class FlightDataComponent implements OnInit, OnDestroy {
 
   onKey(event: any) {
     this.room = event.target.value;
+    this.webSocketService.room = this.room
     const payload = { room: this.room, data: '' };
     console.log(payload)
     this.webSocketService.emit('room', JSON.stringify(payload));
