@@ -79,7 +79,7 @@ var listroom = []
 var uniqueListRoom = []
 const io = require('socket.io')(server, {
     cors: {
-        origin: ["http://localhost:4200"]
+        origin: ["https://gcs-webapp-2021.herokuapp.com/"]
     },
 });
 // socket.io
@@ -92,8 +92,8 @@ io.on('connection', socket => {
         // console.log(payloadjson)
         const mavData = payloadjson.data.fields
         const data = {
-          message: payloadjson.data.message,
-          mavData
+            message: payloadjson.data.message,
+            mavData
         }
         if (payloadjson.room === '') {
             io.emit("test-event", "hey this is from room")
@@ -102,74 +102,74 @@ io.on('connection', socket => {
             socket.join(payloadjson.room);
 
             // setInterval(() => {
-                //     var gstint = Math.floor(Math.random() * 100) + 1;
+            //     var gstint = Math.floor(Math.random() * 100) + 1;
             //     const gs = {
-                //         nama: "gs",
-                //         value: gstint
+            //         nama: "gs",
+            //         value: gstint
             //     }
             //     if (room == "coba") {
-                //         io.to(room).emit('test-event', gs)
-                //     } else {
-                    //         io.to(room).emit('test-event', "hey")
-                    //     }
-                    // }, 1000)
-                    io.to(payloadjson.room).emit('test-event', JSON.stringify(data))
-                }
-                // console.log(data);
-            })
-            socket.emit('test-event', 'here some data')
-            socket.on("arm_disarm", payload => {
-                socket.room = payload.room
-                const payloadjson = JSON.parse(payload)
-                io.to(payloadjson.room).emit('arm_disarm', payloadjson.data)
-                console.log(payloadjson)
-            })
-            socket.on("mission", payload => {
-                socket.room = payload.room
-                const payloadjson = JSON.parse(payload)
-                io.to(payloadjson.room).emit('mission', payloadjson.data)
-                console.log(payloadjson)
-            })
-            socket.on("read-mission", payload => {
-                socket.room = payload.room
-                const payloadjson = JSON.parse(payload)
-                io.to(payloadjson.room).emit('read-mission', payloadjson.data)
-                console.log(payloadjson)
-            })
-            socket.on("get-parameter", payload => {
-                socket.room = payload.room
-                const payloadjson = JSON.parse(payload)
-                io.to(payloadjson.room).emit('get-parameter', payloadjson.data)
-                console.log(payloadjson)
-            })
-            socket.on("list-room", payload => {
-                socket.room = payload.room
-                const payloadjson = JSON.parse(payload)
-                if (!(payloadjson.room in listroom)) {
-                    listroom.push(payloadjson.room)
-                }
-                uniqueListRoom = listroom.filter((x, i, a) => a.indexOf(x) == i)
-                console.log(uniqueListRoom)
-                io.emit('list-room', uniqueListRoom)
-            })
-            socket.on("dellist-room", payload => {
-                socket.room = payload.room
-                const payloadjson = JSON.parse(payload)
-                index = 0
-                for (i = 0; uniqueListRoom.length; i++){
-                    if(uniqueListRoom[i]==payloadjson.room){
-                        index = i
-                        break;
-                    }
-                }
+            //         io.to(room).emit('test-event', gs)
+            //     } else {
+            //         io.to(room).emit('test-event', "hey")
+            //     }
+            // }, 1000)
+            io.to(payloadjson.room).emit('test-event', JSON.stringify(data))
+        }
+        // console.log(data);
+    })
+    socket.emit('test-event', 'here some data')
+    socket.on("arm_disarm", payload => {
+        socket.room = payload.room
+        const payloadjson = JSON.parse(payload)
+        io.to(payloadjson.room).emit('arm_disarm', payloadjson.data)
+        console.log(payloadjson)
+    })
+    socket.on("mission", payload => {
+        socket.room = payload.room
+        const payloadjson = JSON.parse(payload)
+        io.to(payloadjson.room).emit('mission', payloadjson.data)
+        console.log(payloadjson)
+    })
+    socket.on("read-mission", payload => {
+        socket.room = payload.room
+        const payloadjson = JSON.parse(payload)
+        io.to(payloadjson.room).emit('read-mission', payloadjson.data)
+        console.log(payloadjson)
+    })
+    socket.on("get-parameter", payload => {
+        socket.room = payload.room
+        const payloadjson = JSON.parse(payload)
+        io.to(payloadjson.room).emit('get-parameter', payloadjson.data)
+        console.log(payloadjson)
+    })
+    socket.on("list-room", payload => {
+        socket.room = payload.room
+        const payloadjson = JSON.parse(payload)
+        if (!(payloadjson.room in listroom)) {
+            listroom.push(payloadjson.room)
+        }
+        uniqueListRoom = listroom.filter((x, i, a) => a.indexOf(x) == i)
+        console.log(uniqueListRoom)
+        io.emit('list-room', uniqueListRoom)
+    })
+    socket.on("dellist-room", payload => {
+        socket.room = payload.room
+        const payloadjson = JSON.parse(payload)
+        index = 0
+        for (i = 0; uniqueListRoom.length; i++) {
+            if (uniqueListRoom[i] == payloadjson.room) {
+                index = i
+                break;
+            }
+        }
 
-                listroom = listroom.filter(removeRoom);
+        listroom = listroom.filter(removeRoom);
 
-                function removeRoom(age) {
-                return age != payloadjson.room;
-                }
-                uniqueListRoom.splice(index, 1);
-                console.log(uniqueListRoom)
-                io.emit('list-room', uniqueListRoom)
-            })
-        })
+        function removeRoom(age) {
+            return age != payloadjson.room;
+        }
+        uniqueListRoom.splice(index, 1);
+        console.log(uniqueListRoom)
+        io.emit('list-room', uniqueListRoom)
+    })
+})

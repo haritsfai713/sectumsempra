@@ -13,7 +13,7 @@ export class WebSocketService {
   public room = "";
   public MODE : any;
   constructor() {
-    this.socket = io("http://localhost:3000")
+    this.socket = io("https://gcs-webapp-2021-backend.herokuapp.com/")
 
   }
  listen(eventName: string) {

@@ -38,6 +38,11 @@ app.use(express.json());
 app.use(morgan('dev'))
     // 3). CORS
 app.use(cors())
+app.all('/', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next()
+});
 
 // API ROUTES
 app.use("/api/v1/users", userRouter);
