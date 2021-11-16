@@ -56,13 +56,22 @@
 
 <div *ngIf="list" class="uav-list" id="uav-list">
     <div class="uav-list-header">
-        <div class="title">UAV List</div>
+        <div class="title">UAV Active Room List</div>
+
         <button (click)="listUAV()" class="close-button" id="close">&times;</button>
 
     </div>
-    <div class="uav-list-body">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+    <div *ngIf="listroom && listroom.length!=0, else defaultroom" class="uav-list-body">
+         <li *ngFor="let room of listroom">
+            {{ room }}
+        </li>
+
     </div>
+    <ng-template #defaultroom>
+      <div  class="uav-list-body">
+       No active room
+   </div>
+    </ng-template>
 
 </div>
 <div *ngIf="list" id="overlay"></div>

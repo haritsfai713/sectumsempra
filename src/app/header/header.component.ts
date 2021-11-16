@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
 
   public list = false;
   public user = false;
-  public room :any;
+  public listroom :any;
 
   // CONNECT KE UAV LEWAT APA ? (serial, udp)
   public connectUsing = "";
@@ -29,6 +29,10 @@ export class HeaderComponent implements OnInit {
   constructor(private auth: AuthService, public websocket : WebSocketService) { }
 
   ngOnInit(): void {
+    this.websocket.listen('list-room').subscribe((data: any) => {
+      console.log(data)
+      this.listroom = data
+    })
   }
 
   listUAV(){

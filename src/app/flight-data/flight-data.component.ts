@@ -22,6 +22,7 @@ export class FlightDataComponent implements OnInit, OnDestroy {
     email: '',
   };
   public isMap = false;
+  public mute = true;
 
   public room = "";
 
@@ -181,6 +182,7 @@ export class FlightDataComponent implements OnInit, OnDestroy {
 
   startVoice() {
     this.voice.start();
+    this.mute = false;
 
     // if(this.voice.transc.includes("altitude")) {
     //   console.log("success");
@@ -190,6 +192,7 @@ export class FlightDataComponent implements OnInit, OnDestroy {
 
   stopVoice() {
     this.voice.stop();
+    this.mute = true;
   }
   public convertMS(time:any) {
     let hour, minute, seconds;

@@ -305,6 +305,16 @@ h3{
 }
 
 
+.instruction {
+  font-family: sans-serif;
+  color: white;
+  margin: 10px;
+  padding: 0 15px;
+}
+
+.instruction p {
+  font-size: 10px;
+}
 
 
 

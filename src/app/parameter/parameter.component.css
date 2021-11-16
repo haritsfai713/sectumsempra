@@ -94,5 +94,25 @@ button.clr-btn:hover{
 
   }
 
+.room-input {
+  margin-top: 20px;
+  color:#f2f2f2;
+
+}
+
+.room-input input {
+  width: 25%;
+  height: 25px;
+}
+
+.instruction {
+  font-family: sans-serif;
+  color: white;
+  margin: 10px;
+}
+
+.instruction p {
+  font-size: 10px;
+}
 
 

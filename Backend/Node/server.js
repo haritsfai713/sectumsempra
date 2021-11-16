@@ -75,7 +75,8 @@ const server = app.listen(port, () => {
 // });
 
 
-const listroom = []
+var listroom = []
+var uniqueListRoom = []
 const io = require('socket.io')(server, {
     cors: {
         origin: ["http://localhost:4200"]
@@ -88,7 +89,7 @@ io.on('connection', socket => {
         socket.room = payload.room
         const payloadjson = JSON.parse(payload)
 
-        console.log(payloadjson)
+        // console.log(payloadjson)
         const mavData = payloadjson.data.fields
         const data = {
           message: payloadjson.data.message,
@@ -99,7 +100,7 @@ io.on('connection', socket => {
             io.emit('test-event', `private message from this ${payloadjson.room}` + ` data ${ payloadjson.data}`)
         } else {
             socket.join(payloadjson.room);
-            listroom.concat(payload.room)
+
             // setInterval(() => {
                 //     var gstint = Math.floor(Math.random() * 100) + 1;
             //     const gs = {
@@ -134,5 +135,41 @@ io.on('connection', socket => {
                 const payloadjson = JSON.parse(payload)
                 io.to(payloadjson.room).emit('read-mission', payloadjson.data)
                 console.log(payloadjson)
+            })
+            socket.on("get-parameter", payload => {
+                socket.room = payload.room
+                const payloadjson = JSON.parse(payload)
+                io.to(payloadjson.room).emit('get-parameter', payloadjson.data)
+                console.log(payloadjson)
+            })
+            socket.on("list-room", payload => {
+                socket.room = payload.room
+                const payloadjson = JSON.parse(payload)
+                if (!(payloadjson.room in listroom)) {
+                    listroom.push(payloadjson.room)
+                }
+                uniqueListRoom = listroom.filter((x, i, a) => a.indexOf(x) == i)
+                console.log(uniqueListRoom)
+                io.emit('list-room', uniqueListRoom)
+            })
+            socket.on("dellist-room", payload => {
+                socket.room = payload.room
+                const payloadjson = JSON.parse(payload)
+                index = 0
+                for (i = 0; uniqueListRoom.length; i++){
+                    if(uniqueListRoom[i]==payloadjson.room){
+                        index = i
+                        break;
+                    }
+                }
+
+                listroom = listroom.filter(removeRoom);
+
+                function removeRoom(age) {
+                return age != payloadjson.room;
+                }
+                uniqueListRoom.splice(index, 1);
+                console.log(uniqueListRoom)
+                io.emit('list-room', uniqueListRoom)
             })
         })

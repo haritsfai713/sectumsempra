@@ -52,12 +52,19 @@
                     <div *ngIf = "armcheck(); else disarm"  class = "arm-button" (click)="setMavMode()">Armed</div>
                     <ng-template #disarm><div  class = "arm-button" (click)="setMavMode()">Disarmed</div></ng-template>
                 </div>
-                <div class="voice-activation">
+                <div *ngIf="mute, else unmute" class="voice-activation">
                     <i (click)="startVoice()" class="fas fa-microphone" id="active"></i>
+                </div>
+                <ng-template #unmute>
+                  <div class="voice-activation">
                     <i (click)="stopVoice()" class="fas fa-microphone-slash" id="mute"></i>
                 </div>
+                </ng-template>
                 <h3>Input Room Code</h3>
                 <input (keyup.enter)="onKey($event)">
+                <div class="instruction">
+                  <p>to input your room please press enter on your keyboard, So our system can receive it. </p>
+                </div>
 
             </section>
 

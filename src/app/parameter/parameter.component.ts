@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { parameterRecords } from '../models/parameterRecords';
+import { WebSocketService } from '../services/web-socket.service';
 
 @Component({
   selector: 'app-parameter',
@@ -10,9 +11,9 @@ import { parameterRecords } from '../models/parameterRecords';
   styleUrls: ['./parameter.component.css']
 })
 export class ParameterComponent implements OnInit {
-
-  constructor(private auth: AuthService, private rout: Router) { }
-
+  public room:any
+  constructor(private auth: AuthService, private rout: Router, public websocket: WebSocketService) { }
+  public allparam : any
   public parameters: parameterRecords = {
     _id: "",
     children: [{
@@ -44,6 +45,19 @@ export class ParameterComponent implements OnInit {
         }
       }
     )
+    this.websocket.listen('list-room').subscribe((data: any) => {
+      console.log(data)
+      this.allparam = data
+    })
+  }
+
+  onKey(event: any) {
+    this.room = event.target.value;
+  }
+
+  getAllParameters(){
+    const payload = { room: this.room, data: "Meminta data semua parameter" };
+    this.websocket.emit('get-parameter', JSON.stringify(payload));
   }
 
 }
