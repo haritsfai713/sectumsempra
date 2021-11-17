@@ -79,7 +79,7 @@ var listroom = []
 var uniqueListRoom = []
 const io = require('socket.io')(server, {
     cors: {
-        origin: ["https://gcs-webapp-2021.herokuapp.com/"]
+        origin: ["https://localhost:4200"]
     },
 });
 // socket.io
@@ -136,10 +136,18 @@ io.on('connection', socket => {
         io.to(payloadjson.room).emit('read-mission', payloadjson.data)
         console.log(payloadjson)
     })
+    socket.on("req-parameter", payload => {
+        socket.room = payload.room
+        const payloadjson = JSON.parse(payload)
+        socket.join(payloadjson.room);
+        io.to(payloadjson.room).emit('req-parameter', payloadjson.data)
+        console.log(payloadjson)
+    })
     socket.on("get-parameter", payload => {
         socket.room = payload.room
         const payloadjson = JSON.parse(payload)
-        io.to(payloadjson.room).emit('get-parameter', payloadjson.data)
+        socket.join(payloadjson.room);
+        io.to(payloadjson.room).emit('get-parameter', JSON.stringify(payloadjson.data))
         console.log(payloadjson)
     })
     socket.on("list-room", payload => {

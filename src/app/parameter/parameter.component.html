@@ -36,21 +36,23 @@
 
         </div>
 
-        <table>
-      <tr>
-          <th><p>Param Index</p></th>
-          <th><p>Param Name</p></th>
-          <th><p>Param Value</p></th>
-          <th><p>Param Type</p></th>
-      </tr>
 
-      <tr *ngFor="let parameter of parameters.children">
-          <td><p>{{ parameter.param_index }}</p></td>
-          <td><p>{{ parameter.param_id }}</p></td>
-          <td><input type="number" [(ngModel)]="parameter.param_value" placeholder="{{ parameter.param_value }}"/></td>
-          <td><p>{{ parameter.param_type }}</p></td>
-      </tr>
-  </table>
+        <table>
+          <tr>
+            <th><p>Param Index</p></th>
+            <th><p>Param Name</p></th>
+            <th><p>Param Value</p></th>
+            <th><p>Param Type</p></th>
+          </tr>
+
+          <tr *ngFor="let param of allparam">
+              <td><p>{{ param.param_index }}</p></td>
+              <td><p>{{ param.param_id }}</p></td>
+              <td><input type="number" [(ngModel)]="param.param_value" placeholder="{{ param.param_value }}"/></td>
+              <td><p>{{ param.param_type }}</p></td>
+          </tr>
+
+        </table>
 
 
     </main>
