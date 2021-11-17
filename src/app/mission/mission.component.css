@@ -133,7 +133,25 @@ button.home-btn:hover {
 }
 
 
+.leave-btn{
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  /* justify-content: center; */
+  width: 50%;
+  background-color: #192E54;
+  border: none;
+  color: white;
+  padding: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 12px;
+  margin-left :75px;
+  border-radius: 2rem;
+  transition: .5s;
 
+}
 
 
 

@@ -216,6 +216,14 @@ export class FlightDataComponent implements OnInit, OnDestroy {
     console.log(payload)
     this.webSocketService.emit('room', JSON.stringify(payload));
   }
+  leaveroom() {
+    this.webSocketService.room = this.room
+    const payload = { room: this.room, data: '' };
+    console.log(payload)
+    this.webSocketService.emit('leave-room', JSON.stringify(payload));
+  }
+
+
 
   armcheck() {
     if(this.webSocketService.MODE === "ARMED") {

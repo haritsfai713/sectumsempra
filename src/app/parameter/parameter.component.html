@@ -24,13 +24,15 @@
       <div class="buttonClass">
         <button class="clr-btn"><span>Clear Parameter</span></button>
         <button class="parameter-btn" (click)="getAllParameters()"><span>Get Parameter</span></button>
-        <button class="parameter-btn"><span>Send Parameter</span></button>
+        <button class="parameter-btn" (click)="sendAllParameters()"><span>Send Parameter</span></button>
         <div class="room-input">
           <h3>Enter Room Code</h3>
         <input (keyup.enter)="onKey($event)">
         <div class="instruction">
           <p>to input your room please press enter on your keyboard, So our system can receive it. </p>
         </div>
+        <div class="leave-btn" (click)="leaveroom()">Leave Room</div>
+
 
         </div>
 

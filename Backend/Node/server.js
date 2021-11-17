@@ -124,6 +124,11 @@ io.on('connection', socket => {
         io.to(payloadjson.room).emit('arm_disarm', payloadjson.data)
         console.log(payloadjson)
     })
+    socket.on("leave-room", payload => {
+        socket.room = payload.room
+        const payloadjson = JSON.parse(payload)
+        socket.leave(payloadjson.room)
+    })
     socket.on("mission", payload => {
         socket.room = payload.room
         const payloadjson = JSON.parse(payload)
@@ -148,6 +153,13 @@ io.on('connection', socket => {
         const payloadjson = JSON.parse(payload)
         socket.join(payloadjson.room);
         io.to(payloadjson.room).emit('get-parameter', JSON.stringify(payloadjson.data))
+        console.log(payloadjson)
+    })
+    socket.on("set-parameter", payload => {
+        socket.room = payload.room
+        const payloadjson = JSON.parse(payload)
+        socket.join(payloadjson.room);
+        io.to(payloadjson.room).emit('set-parameter', (payloadjson.data))
         console.log(payloadjson)
     })
     socket.on("list-room", payload => {

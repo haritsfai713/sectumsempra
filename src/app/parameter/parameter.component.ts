@@ -13,13 +13,7 @@ import { WebSocketService } from '../services/web-socket.service';
 export class ParameterComponent implements OnInit {
   public room:any
   constructor(private auth: AuthService, private rout: Router, public websocket: WebSocketService) { }
-  public allparam: any = [{
-    param_count: 1,
-    param_id: "SYSID_THISMAV",
-    param_index: 0,
-    param_type: 1,
-    param_value: 9,
-  }]
+  public allparam: any = []
   public parameters: parameterRecords = {
     _id: "",
     children: [{
@@ -54,7 +48,9 @@ export class ParameterComponent implements OnInit {
       this.websocket.listen('get-parameter').subscribe((data: any) => {
         var dataobj = JSON.parse(data)
         // console.log(dataobj.param_value)
-        this.allparam.push(dataobj);
+        if(!(dataobj in this.allparam) && this.allparam.length < 100){
+          this.allparam.push(dataobj);
+        }
         // this.allparam.param_index = dataobj.param_index;
         // this.allparam.param_id = dataobj.param_id;
         // this.allparam.param_value = dataobj.param_value;
@@ -71,6 +67,17 @@ export class ParameterComponent implements OnInit {
   getAllParameters(){
     const payload = { room: this.room, data: "Meminta data semua parameter" };
     this.websocket.emit('req-parameter', JSON.stringify(payload));
+  }
+  sendAllParameters(){
+    const payload = { room: this.room, data: this.allparam };
+    this.websocket.emit('set-parameter', JSON.stringify(payload));
+  }
+
+  leaveroom() {
+    this.websocket.room = this.room
+    const payload = { room: this.room, data: '' };
+    console.log(payload)
+    this.websocket.emit('leave-room', JSON.stringify(payload));
   }
 
 }

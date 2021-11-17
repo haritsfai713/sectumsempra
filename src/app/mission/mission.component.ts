@@ -76,5 +76,12 @@ export class MissionComponent implements OnInit {
   onKeyalt(event: any) {
     this.waypointService.altitude = event.target.value
   }
+
+  leaveroom() {
+    this.webSocketService.room = this.room
+    const payload = { room: this.room, data: '' };
+    console.log(payload)
+    this.webSocketService.emit('leave-room', JSON.stringify(payload));
+  }
 }
 
