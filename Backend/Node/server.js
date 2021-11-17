@@ -79,7 +79,7 @@ var listroom = []
 var uniqueListRoom = []
 const io = require('socket.io')(server, {
     cors: {
-        origin: ["https://localhost:4200"]
+        origin: ["https://gcs-webapp-2021.herokuapp.com/landing"]
     },
 });
 // socket.io
