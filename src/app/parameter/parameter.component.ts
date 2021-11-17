@@ -48,7 +48,7 @@ export class ParameterComponent implements OnInit {
       this.websocket.listen('get-parameter').subscribe((data: any) => {
         var dataobj = JSON.parse(data)
         // console.log(dataobj.param_value)
-        if(!(dataobj in this.allparam) && this.allparam.length < 100){
+        if(!(dataobj in this.allparam) && this.allparam.length < 836){
           this.allparam.push(dataobj);
         }
         // this.allparam.param_index = dataobj.param_index;
