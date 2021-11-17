@@ -14,7 +14,12 @@ export class WebSocketService {
   public MODE : any;
   constructor() {
     // this.socket = io("https://gcs-webapp-2021-backend.herokuapp.com/")
-    this.socket = io("https://gcs-webapp-2021-backend.herokuapp.com/")
+    this.socket = io("https://gcs-webapp-2021-backend.herokuapp.com/", {
+      withCredentials: true,
+      extraHeaders: {
+        "my-custom-header": "abcd"
+      }
+    })
 
   }
  listen(eventName: string) {
