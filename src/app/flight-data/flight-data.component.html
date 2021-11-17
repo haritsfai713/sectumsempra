@@ -62,7 +62,10 @@
                 </ng-template>
                 <h3>Input Room Code</h3>
                 <input (keyup.enter)="onKey($event)">
-                <button (click)="leaveroom()">Leave Room</button>
+                <div class="leave-contain">
+                  <div class="leave-btn" (click)="leaveroom()">Leave Room</div>
+                </div>
+
                 <div class="instruction">
                   <p>to input your room please press enter on your keyboard, So our system can receive it. </p>
                 </div>

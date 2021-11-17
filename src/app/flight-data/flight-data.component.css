@@ -136,8 +136,8 @@ ul li:hover a{
   margin: 20px 38px;
 }
 .hud {
-  width: 40vh;
-  height: 20vh;
+  min-width: 285px;
+  min-height: 140px;
   border-radius: 100px;
   background: rgb(255,193,0);
   background: linear-gradient(to right bottom, rgba(218, 194, 64, 0.7),rgba(251, 255, 9, 0.3));
@@ -200,7 +200,7 @@ i {
 
 .parameter {
   height: 33vh;
-  width: 40vh;
+  width: 290px;
   border-radius: 10px;
   background: rgb(255,193,0);
   background: linear-gradient(to right bottom, rgba(218, 194, 64, 0.7),rgba(251, 255, 9, 0.3));
@@ -229,8 +229,8 @@ i {
 }
 
 .ui, .compass {
-  width: 140px;
-  height: 140px;
+  min-width: 140px;
+  min-height: 140px;
   border-radius: 100%;
   border: 3px solid white;
   bottom: 3px;
@@ -316,8 +316,30 @@ h3{
   font-size: 10px;
 }
 
+.leave-btn{
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  width : 150px;
+  background-color: #192E54;
+  border: none;
+  color: white;
+  padding: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 12px 50px;
+  /* margin-left :75px; */
+  border-radius: 2rem;
+  transition: .5s;
 
+}
 
+.leave-contain{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 
 

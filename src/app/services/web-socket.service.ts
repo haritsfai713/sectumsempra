@@ -13,8 +13,9 @@ export class WebSocketService {
   public room = "";
   public MODE : any;
   constructor() {
+
     // this.socket = io("https://gcs-webapp-2021-backend.herokuapp.com/")
-    this.socket = io("https://gcs-webapp-2021-backend.herokuapp.com/")
+    this.socket = io("http://localhost:3000")
 
   }
  listen(eventName: string) {

@@ -176,7 +176,7 @@ recognition =  new webkitSpeechRecognition();
       this.speech.text = "current roll is at angle of" + this.roll.toFixed(2) +"degree";
     }
 
-    if(this.transc.includes("pitch")){
+    if(this.transc.includes("pitch")|| this.transc.includes("peach")|| this.transc.includes("beach")){
       this.speech.text = "current pitch is at angle of" + this.pitch.toFixed(2) +"degree";
     }
     if(this.transc.includes("yaw")){
@@ -187,7 +187,7 @@ recognition =  new webkitSpeechRecognition();
       this.speech.text = "current position is at longitude of" + this.lon.toFixed(2) +"and latitude of" + this.lat.toFixed(2);
     }
 
-    if(this.transc.includes("arm") || this.transc.includes("arming")){
+    if(this.transc.includes("arm") || this.transc.includes("arming")|| this.transc.includes("army")|| this.transc.includes("are")){
 
       if(this.webSocketService.MODE === "ARMED") {
         this.speech.text = "UAV is already armed";

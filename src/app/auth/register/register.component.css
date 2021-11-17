@@ -22,8 +22,8 @@ body {
 
 .glass {
     background: rgb(255, 193, 0);
-    min-height: 75vh;
-    min-width: 50vh;
+    min-height: 550px;
+    min-width: 450px;
     background: linear-gradient(to right bottom, rgba(241, 213, 50, 0.7), rgba(238, 241, 15, 0.3));
     border-radius: 2rem;
     backdrop-filter: blur(2rem);

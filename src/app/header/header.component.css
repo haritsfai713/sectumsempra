@@ -11,6 +11,7 @@ html {
 
 nav {
     width: 100%;
+    min-width: 200px;
     height: 80px;
     background-color: #192E54;
     vertical-align: middle;
