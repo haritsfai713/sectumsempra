@@ -102,6 +102,8 @@ ul li:hover a{
 
 .container {
   display: flex;
+  align-items: center;
+  justify-content: center;
 
 }
 
@@ -116,6 +118,9 @@ ul li:hover a{
 
   text-align: center;
   display: inline-block;
+  align-items: center;
+  justify-content: center;
+
 }
 
 .map {
@@ -136,6 +141,7 @@ ul li:hover a{
   margin: 20px 38px;
 }
 .hud {
+  width: 285px;
   min-width: 285px;
   min-height: 140px;
   border-radius: 100px;
@@ -148,6 +154,11 @@ ul li:hover a{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.hud-class {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .voice-activation{
@@ -341,5 +352,11 @@ h3{
   align-items: center;
 }
 
+.param-class {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
 

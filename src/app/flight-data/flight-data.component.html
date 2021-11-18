@@ -21,6 +21,8 @@
                 <!-- <div class="attitude">
 
         </div> -->
+                <div class="hud-class">
+
                 <div class="hud">
                     <div class="ui">
                         <svg id="sky" data-name="sky" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320.28 320"><defs><style>.cls-10{fill:#94b123;}.cls-11{fill:#aad0e7;}</style></defs><title>Aksantara</title><polygon class="cls-10" points="320 160 320 160.49 0.28 160.49 0.28 320 320.28 320 320.28 160 320 160"/><polygon class="cls-11" points="320 160 320 0 0 0 0 160.49 0.28 160.49 320 160.49 320 160"/></svg>
@@ -39,7 +41,9 @@
                     </div>
 
                 </div>
-                <div class="parameter">
+              </div>
+                <div class="param-class">
+                  <div class="parameter">
                     <p style="margin-bottom: 15px;">Values</p>
                     <p>Alt (Rel) (m)</p>
                     <p id="alt" style="margin-bottom: 15px;" class="number">{{ alt }}</p>
@@ -48,6 +52,9 @@
                     <p>Flight Time</p>
                     <p class="number"><span id="hour">00</span>:<span id="minute">00</span>:<span id="second">00</span></p>
                 </div>
+
+                </div>
+
                 <div class="arm">
                     <div *ngIf = "armcheck(); else disarm"  class = "arm-button" (click)="setMavMode()">Armed</div>
                     <ng-template #disarm><div  class = "arm-button" (click)="setMavMode()">Disarmed</div></ng-template>

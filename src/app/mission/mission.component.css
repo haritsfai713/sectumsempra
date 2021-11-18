@@ -147,11 +147,15 @@ button.home-btn:hover {
   font-weight: bold;
   cursor: pointer;
   margin: 12px;
-  margin-left :75px;
   border-radius: 2rem;
   transition: .5s;
 
 }
 
+.leave-class {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 
