@@ -40,6 +40,8 @@ export class MavlinkService  {
 
       }
 
+      console.log(data)
+
 
       switch (this.parsedData.message) {
         case 'ATTITUDE':

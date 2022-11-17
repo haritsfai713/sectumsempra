@@ -7,9 +7,9 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-  // private _url = "http://localhost:3000/api"
+  private _url = "http://localhost:3000/api/v1"
 
-  private _url = "https://gcs-webapp-2021-backend.herokuapp.com/api/v1"
+  // private _url = "https://gcs-webapp-2021-backend.herokuapp.com/api/v1"
 
   constructor(private http: HttpClient, private rout: Router) {
 

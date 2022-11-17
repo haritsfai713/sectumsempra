@@ -92,7 +92,7 @@ io.on('connection', socket => {
         socket.room = payload.room
         const payloadjson = JSON.parse(payload)
 
-        // console.log(payloadjson)
+        console.log(payloadjson)
         const mavData = payloadjson.data.fields
         const data = {
             message: payloadjson.data.message,
@@ -118,7 +118,7 @@ io.on('connection', socket => {
             // }, 1000)
             io.to(payloadjson.room).emit('test-event', JSON.stringify(data))
         }
-        // console.log(data);
+        console.log(data);
     })
     socket.emit('test-event', 'here some data')
     socket.on("arm_disarm", payload => {
