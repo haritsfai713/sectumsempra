@@ -1,5 +1,9 @@
 @import "https://use.fontawesome.com/releases/v5.5.0/css/all.css";
 
+@import "https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css";
+
+@import "https://fonts.googleapis.com/css?family=Titillium+Web:300";
+
 * {
   margin: 0;
   padding: 0;
@@ -24,7 +28,7 @@ body{
   min-height: 100vh;
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   background-size: cover;
 
 }
@@ -37,20 +41,54 @@ body{
 }
 
 .plan {
-
-  background: rgb(255,193,0);
+  position: absolute;
+  width: 320px;
+  height: 400px;
+  right: 5%;
+  top: 2%;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(to right bottom, rgba(119, 123, 206, 0.7), rgba(46, 48, 175, 0.834));
+  border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  z-index: 9;
+  /* background: rgb(255,193,0);
   height: 100vh;
   width: 20%;
   background: linear-gradient(to right bottom, rgb(221, 142, 51),rgb(255, 91, 9));
   backdrop-filter: blur(2rem);
   text-align: center;
-  display: inline-block;
+  display: inline-block; */
+}
+.plan2 {
+  position: absolute;
+  width: 320px;
+  height: 200px;
+  right: 5%;
+  bottom: 2%;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(to right bottom, rgba(119, 123, 206, 0.7), rgba(46, 48, 175, 0.834));
+  border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  z-index: 9;
+  /* background: rgb(255,193,0);
+  height: 100vh;
+  width: 20%;
+  background: linear-gradient(to right bottom, rgb(221, 142, 51),rgb(255, 91, 9));
+  backdrop-filter: blur(2rem);
+  text-align: center;
+  display: inline-block; */
 }
 
 .map {
 
   height: 100%;
-  width: 80%;
+  width: 100%;
 
 }
 
@@ -64,7 +102,7 @@ body{
 }
 
 button {
-  background-color: #192E54;
+  background:linear-gradient(to right bottom, rgba(205, 114, 86, 0.7), rgba(222, 21, 21, 0.834));
   margin: 30px 10px 0 0;
   padding: 8px;
   text-decoration: none;
@@ -72,6 +110,7 @@ button {
   cursor: pointer;
   border-radius: 10px;
   transition: .5s;
+  font-family: 'Titillium Web', sans-serif;
 }
 
 span {
@@ -123,7 +162,7 @@ button.home-btn:hover {
 }
 
 .instruction {
-  font-family: sans-serif;
+
   color: white;
   margin: 10px;
 }
@@ -138,8 +177,8 @@ button.home-btn:hover {
   align-items: center;
   justify-content: center; */
   /* justify-content: center; */
-  width: 50%;
-  background-color: #192E54;
+  width: 55%;
+  background: linear-gradient(to right bottom, rgba(205, 114, 86, 0.7), rgba(222, 21, 21, 0.834));
   border: none;
   color: white;
   padding: 5px;

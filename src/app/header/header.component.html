@@ -3,7 +3,7 @@
 </head>
 
 
-<nav>
+<!-- <nav>
     <img routerLink="/landing" class="aksantara" src="../../assets/image/aksantara.png" />
     <div class="top-icon">
         <ul>
@@ -21,11 +21,11 @@
         </ul>
 
 
-    </div>
+    </div> -->
 
 
 
-    <div class="user">
+    <!-- <div class="user"> -->
       <!-- <div class="connect-list">
         <label for="channel"></label>
         <select name="channel" id="channel" [(ngModel)]="connectUsing">
@@ -38,19 +38,89 @@
       </div> -->
 
 
-        <ul>
+        <!-- <ul>
             <li>
                 <a id="profile"><i (click)="userPopup()" class="fas fa-user-alt" ></i></a>
 
             </li>
 
             <!-- <li><a class="active" href="#" routerLink="/login">Login</a> </li> -->
-        </ul>
+        <!-- </ul> -->
 
-    </div>
+    <!-- </div> -->
 
 
 
+<!-- </nav> -->
+
+<div class="area"></div><nav class="main-menu">
+  <ul>
+      <li class="has-subnav">
+          <a href="/home">
+              <i class="fa">
+                  <img src="../../assets/image/catra danadyaksa (2).png">
+              </i>
+              <span class="nav-text">
+                  Sectumsempra
+              </span>
+          </a>
+
+      </li>
+
+      <div class="main-feature">
+          <li>
+              <a href="/dashboard">
+                  <i class="fa fa-home fa-2x"></i>
+                  <span routerlink="/dashboard" class="nav-text">
+                      Dashboard
+                  </span>
+              </a>
+
+          </li>
+          <li class="has-subnav">
+              <a href="/mission">
+                  <i class="fa fa-map-marker fa-2x"></i>
+                  <span class="nav-text">
+                      Planner
+                  </span>
+              </a>
+
+          </li>
+          <li class="has-subnav">
+              <a href="/parameter">
+                 <i class="fa fa-code fa-2x"></i>
+                  <span class="nav-text">
+                      Parameter
+                  </span>
+              </a>
+
+          </li>
+
+      </div>
+
+
+  </ul>
+
+  <ul class="logout">
+
+      <li>
+          <a href="#">
+                <i class="fa fa-user fa-2x"></i>
+               <span class="nav-text">
+                   User Profile
+               </span>
+           </a>
+       </li>
+
+      <li>
+         <a href="#">
+               <i class="fa fa-power-off fa-2x"></i>
+              <span class="nav-text">
+                  Logout
+              </span>
+          </a>
+      </li>
+  </ul>
 </nav>
 
 

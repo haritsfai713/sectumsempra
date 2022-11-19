@@ -1,5 +1,11 @@
+@import "https://use.fontawesome.com/releases/v5.5.0/css/all.css";
+
+@import "https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css";
+
+@import "https://fonts.googleapis.com/css?family=Titillium+Web:300";
+
 #customers {
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   border-collapse: collapse;
   width: 100%;
 }
@@ -17,6 +23,6 @@
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color:  #192E54;
+  background:  linear-gradient(to right bottom, rgba(11, 4, 87, 0.7), rgba(3, 6, 169, 0.834));
   color: white;
 }

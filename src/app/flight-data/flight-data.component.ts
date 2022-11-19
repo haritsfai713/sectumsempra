@@ -25,6 +25,27 @@ export class FlightDataComponent implements OnInit, OnDestroy {
   public mute = true;
 
   public room = "";
+  public draggableElem = document.getElementById("draggable-elem");
+public initialX = 0;
+public initialY = 0;
+public moveElement = false;
+
+//Events Object
+public events = {
+  mouse: {
+    down: "mousedown",
+    move: "mousemove",
+    up: "mouseup",
+  },
+  touch: {
+    down: "touchstart",
+    move: "touchmove",
+    up: "touchend",
+  },
+};
+
+public deviceType = "";
+
 
   // FLIGHT DATA COMPONENT
   public parsedData : any;
@@ -53,6 +74,9 @@ export class FlightDataComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+
+   
+
     this.auth.verifyToken().subscribe((err) => {
       if (err instanceof HttpErrorResponse) {
         if (err.status === 500) {
@@ -233,6 +257,20 @@ export class FlightDataComponent implements OnInit, OnDestroy {
       return false;
     }
   }
+
+  isTouchDevice = () => {
+    try {
+      //We try to create TouchEvent (it would fail for desktops and throw error)
+      document.createEvent("TouchEvent");
+      this.deviceType = "touch";
+      return true;
+    } catch (e) {
+      this.deviceType = "mouse";
+      return false;
+    }
+  };
+
+
 
   setMavMode() {
     if (this.webSocketService.MODE === "DISARMED") {
