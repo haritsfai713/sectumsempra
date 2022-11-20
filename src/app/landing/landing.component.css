@@ -1,10 +1,15 @@
 @import "https://use.fontawesome.com/releases/v5.5.0/css/all.css";
+
+@import "https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css";
+
+@import "https://fonts.googleapis.com/css?family=Titillium+Web:300";
 nav {
   width: 100%;
   height: 80px;
   margin: 0 auto;
-  background-color: #192E54;
+
   vertical-align: middle;
+  position: fixed;
 }
 
 nav img {
@@ -25,16 +30,16 @@ nav ul li {
 nav ul li a {
   padding: 5px 15px 5px 15px;
   color: white;
-  font-family: sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-weight: bold;
   text-decoration: none;
   margin: 18px 10px 0 0;
-  background: #F59400;
+  background: linear-gradient(to right bottom, rgba(119, 123, 206, 0.7), rgba(46, 48, 175, 0.834));
   border-radius: 5px;
   transition: .5s;
 }
 nav ul li a.active:hover {
-  background: #ffbb00;
+  background: #6f81ec
 }
 
 
@@ -47,7 +52,6 @@ nav ul li a.active:hover {
 
 main {
     min-height: 100vh;
-    background: linear-gradient(to right top, #ffc100, #ff4d00);
     display: flex;
     justify-content: center;
 }
@@ -57,16 +61,25 @@ body {
     padding: 0;
     font-family: sans-serif;
     background-size: cover;
+
 }
 
 .about {
   width: 100vh;
-  text-align: center;
-  font-family: sans-serif;
-  color: white;
+  text-align: justify;
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: bold;
+  color: rgb(10, 10, 10);
   margin-top: 20vh;
   animation: landing 5s linear 1s normal;
   animation-timing-function: ease-in-out;
+  z-index: 1;
+  /* text-shadow: 2px 2px 4px #000000; */
+  background: #ffffff;
+  border-radius: 20px;
+  width: 60%;
+  height: 50%;
+  padding: 30px 30px;
 }
 
 @keyframes landing {
@@ -92,4 +105,35 @@ body {
 
 .about h1{
   font-size: 40px;
+  font-weight: bolder;
+  color: rgb(228, 114, 22);
+}
+
+video{
+position: fixed;
+object-fit: cover;
+height: 100%;
+width: 100%;
+z-index: -1;
+filter: brightness(0.7);
+}
+
+.video-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: inherit;
+  padding: 1em;
+  color: var(--white);
+  align-items: center;
+}
+.video-container{
+  max-width: 100%;
+  overflow-x: hidden;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  object-fit: contain;
 }

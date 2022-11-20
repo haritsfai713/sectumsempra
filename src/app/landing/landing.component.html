@@ -10,6 +10,8 @@
 </head>
 
 <body>
+
+
     <nav>
         <img routerLink="/landing" class="aksantara" src="../../assets/image/aksantara.png" />
 
@@ -18,16 +20,21 @@
             <li><a class="active" href="#" routerLink="/register">Register</a> </li>
         </ul>
     </nav>
-
+    <div class="video-container">
+      <video autoplay [muted]="'muted'" loop> <source src="../../assets/video/hero.mp4" type="video/mp4"></video>
+      <div class="video-content">
+        <img src="../../assets/image/logoWhite.png">
+      </div>
+    </div>
     <main>
 
         <div class="about">
-            <h1>ANTHARWA Ground Control Station</h1>
+            <h1>SECTUMSEMPRA</h1>
 
-            <p>GCS Antharwa adalah GCS yang dikembangkan berbasis web application dengan menerapkan skema autentikasi agar dapat diakses oleh banyak pengguna di berbagai device apapun. Terdapat tiga fungsi utama dari GCS Antharwa yaitu menerima dan menampilkan
+            <p> SECTUMSEMPRA adalah sistem GCS (Ground Control Station) yang dikembangkan berbasis web application dengan menerapkan skema autentikasi agar dapat diakses oleh banyak pengguna di berbagai device apapun. Terdapat tiga fungsi utama dari GCS SECTUMSEMPRA yaitu menerima dan menampilkan
                 flight data dari UAV, merencanakan dan mengirimkan misi terbang ke UAV, dan melakukan pengaturan serta penerimaan parameter UAV. GCS yang dibangun akan mengimplementasikan tiga fungsi utama tersebut. Namun agar lebih memudahkan operator
                 UAV,untuk memantau flight data dapat dilakukan bukan hanya dengan cara klasik seperti mengetik dan menekan tombol namun juga dapat dilakukan melalui suara dengan mengintegrasikan GCS dengan teknologi voice recognition. Fitur lain dari
-                GCS Antharwa adalah controlling dan monitoring multi wahana.
+                GCS SECTUMSEMPRA adalah controlling dan monitoring multi wahana.
               </p>
 
 
